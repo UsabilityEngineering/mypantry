@@ -1,5 +1,6 @@
 # Personas
 ## Geoffrey
+![](Geoffrey.jpeg)
 42 year old married man living in Pierre, South Dakota. Invested in BitCoin early in its life and cashed out in 2020, retiring early in his life from his job as an accountant. Geoffrey has two children: a 12 year old son and 9 year old daughter. 
 Having a ton of free time on his hands, Geoffrey has been seeking out new hobbies and is currently bouncing around between different hobbies until he finds one that sticks.
 Geoffrey’s wife insists that she continue working her job, despite his immense fortune. That doesn’t bother Geoffrey. He quite likes taking care of the home while his wife is out. That includes doing the cooking, although his family has been quite vocal about their unhappiness with his bland meals.
@@ -8,12 +9,14 @@ Geoffrey’s wife insists that she continue working her job, despite his immense
 * Find a hobby that doesn’t require him to detract his interest in other hobbies.
 
 ## Trey
+![](Trey.jpeg)
 Trey is a 20 year old man, full time college student at Arizona State University majoring in English. His day to day experience involves going to school, doing homework assignments, playing video games and hanging out with friends. He lives in an apartment with three other roommates.
 He wants to learn how to cook, but feels like he often does not have the time to do so. He often resorts to using delivery apps such as Doordash and UberEats for dinner.
 ### Goals:
 * Easy to learn recipes with relatively simple ingredients.
 
 ## Destiny
+![](Destiny.jpeg)
 Destiny is a 20 year old female living in Los Angeles County. She doesn’t quite like cleaning, and her house would be considered to be quite messy even by college dorm standards. She loves to cook and the kitchen, in a similar theme to the rest of her house, has a smorgasbord of ingredients strewn throughout.
 
 She has been single the majority of her life, but doesn’t particularly care about that. She enjoys being on her own. She has a couple of close friends she loves and no ambition to be a social butterfly.
@@ -22,6 +25,7 @@ She loves trying new things, but lately has had trouble finding new things to tr
 * Wants to find new recipes she can experiment with.
 
 ## Julie
+![](Julie.jpeg)
 Julie is an accountant and mother of three living in Georgia. Her husband is in the military and there are long periods of time where she is solely responsible for their children. Julie’s job fluctuates in demand with some weeks where she is extremely busy and others where she may have some more free time on her hands.
 
 In regards to meals, if she had the time, Julie would prefer to cook a healthy meal. Her youngest son has a lot of food allergies, however, so finding new meals that are healthy with a limited amount of ingredients has proven to be a challenge.
