@@ -1,14 +1,15 @@
-!!! NOTE: Delete all parts of this file surrounded by three exclamation marks (including the exclamation marks themselves) and replace them with the appropriate content -- they are only instructions and shouldn't be in your report!!!
-
 # MyPantry
 
-!!!Brief introduction to the project and the problem it is intended to solve!!!
+MyPantry is a webapp designed to help you find recipes with the ingredients you already have at home.
 
 ## UX Team Members
 
-* **[Todd Lange](!!!URL to Person A's published portfolio!!!)** - !!!List of Person A's primary contributions!!!
-* **[Ethan Nguyen](!!!URL to Person B's published portfolio!!!)** - !!!List of Person B's primary contributions!!!
-* **[Dylan Wright](!!!URL to Person C's published portfolio!!!)** - !!!List of Person C's primary contributions!!!
+* **[Todd Lange](https://usabilityengineering.github.io/ux-portfolio-hugeblank/)** 
+    - 
+* **[Ethan Nguyen](https://usabilityengineering.github.io/ux-portfolio-ethanhn11/)** 
+    - 
+* **[Dylan Wright](https://usabilityengineering.github.io/ux-portfolio-no-bugs-only-features/)** 
+    - 
 
 # User-Centered Design Artifacts
  
