@@ -5,11 +5,12 @@ MyPantry is a webapp designed to help you find recipes with the ingredients you 
 ## UX Team Members
 
 * **[Todd Lange](https://usabilityengineering.github.io/ux-portfolio-hugeblank/)** 
-    - 
+    * 
 * **[Ethan Nguyen](https://usabilityengineering.github.io/ux-portfolio-ethanhn11/)** 
-    - 
+    * worked on: competitive analysis, heuristic evaluation, persona and scenarios, sketch #2
+    * report: all write up relating to competitive analysis
 * **[Dylan Wright](https://usabilityengineering.github.io/ux-portfolio-no-bugs-only-features/)** 
-    - 
+    * 
 
 # User-Centered Design Artifacts
  
