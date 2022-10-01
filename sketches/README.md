@@ -1,7 +1,7 @@
 # Sketches
 
 ## Diagram
-![](mp_diagram.jpg)
+![](mp_diagram_1.jpg)
 
 ## UI Design Idea #1
 ### Home and Recipe Page
