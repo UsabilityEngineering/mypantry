@@ -26,10 +26,22 @@ MyPantry is a webapp designed to help you find recipes with the ingredients you 
 
 **Executive Summary**
 
-* !!!In a bullet-list, provide a summary that highlights...!!!
-* !!!What you've done during this phase...!!!
-* !!!and what the significance of it is...!!!
-* !!!as an executive would understand.!!!
+In many households, regarldess of any size, there are two common problems that tend to arise:
+1. Organization of food and ingredients in the household.
+2. Determining what to eat, when to eat it, and how to prepare it.
+
+The team for **MyPantry** has performed some analysis and evaluated that there exists an opportunity to improve user experience by **providing a unified solution** to these problems.
+
+* The market for an app like ours is **highly satured, but limited in scope**. Our competitive analysis provided us with the following **user insights**:
+    * Users would like to create their own recipes.
+    * Users would like a product that is **cross-platfrom**.
+* When evaluation a specific competitor, **SuperCook**, it was found thaat the product was generally easy to use, however it lacked **error reporting** and **documentation**.
+* More information about what is desired of our application have been envisioned through new personas and scenarios:
+    * The desire for an application with a high degree of **user freedom** in the form of niche filters and features.
+* We were also able to apply insights gained from findings to our sketches and diagrams:
+    * **Increasing learnability** by including a getting started pop-up.
+    * **Clarifying system status** by separating different tasks and notifying the users of errors.
+    * **Increasing user efficiency** by adding shortcuts for experienced users.
 
 [Full phase I report](phaseI/)
 
