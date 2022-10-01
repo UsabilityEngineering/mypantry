@@ -1,5 +1,9 @@
 # Phase I: Analyzing Users, Competitors, and Initial Designs
 
+## Introduction
+
+MyPantry is a web app currently in development with the main goal of helping users find recipes based on ingredients they already have at home. To help with the early stages of development, we the UX team (Todd Lange, Ethan Nguyen, and Dylan Wright) put together this report to summarize our early findings regarding potential users and existing competitors as well as potential directions for the development of MyPantry.
+
 ## Method
 
 To gain insight into our competitors and potential users, two main methods (competitive analysis and heuristic evaluation) were conducted. 
@@ -11,7 +15,7 @@ The heuristics evaluation was used to determine whether or not a UX design satis
 ## Findings
 
 From our competitive analysis, we learned that there are a lot of products offering a similar service to MyPantry. Products like SuperCook, MyFridgeFood, and Half Lemons are all relatively established in this space and provide the basic functionality of generating recipes based on ingredients available to a user. 
-* Of the three main competitors, SuperCook has the largest existing user base with 1 million plus downloads
+* Of the three main competitors, SuperCook has the largest existing user base with 1 million plus downloads.
 * All three of the main competitors we looked at did not have a way for users to create their own recipes. 
 * SuperCook and MyFridgeFood both had reported issues with crossover between desktop and mobile interfaces (Half Lemon is only available on mobile devices). 
 * All three also did not have any functionality relating to common allergens, a feature that could be helpful in households that occasionally need to limit their available ingredients. 
