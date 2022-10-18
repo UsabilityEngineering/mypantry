@@ -6,6 +6,7 @@ Having a ton of free time on his hands, Geoffrey has been seeking out new hobbie
 Geoffrey’s wife insists that she continue working her job, despite his immense fortune. That doesn’t bother Geoffrey. He quite likes taking care of the home while his wife is out. That includes doing the cooking, although his family has been quite vocal about their unhappiness with his bland meals.
 ### Goals:
 * Find recipes that better appeal to his children's appetites.
+* Able to quickly find his missing ingredients for the meals he'd like to cook.
 
 ## Trey
 ![](Trey.jpeg)
