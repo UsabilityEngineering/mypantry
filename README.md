@@ -26,7 +26,7 @@ MyPantry is a webapp designed to help you find recipes with the ingredients you 
 
 **Executive Summary**
 
-In many households, regarldess of any size, there are two common problems that tend to arise:
+In many households, regardless of any size, there are two common problems that tend to arise:
 1. Organization of food and ingredients in the household.
 2. Determining what to eat, when to eat it, and how to prepare it.
 
