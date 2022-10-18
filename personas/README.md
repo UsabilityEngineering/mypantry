@@ -35,7 +35,7 @@ In regards to meals, if she had the time, Julie would prefer to cook a healthy m
 
 # Scenarios
 ## Geoffrey’s Home Life
-Even though Geoffrey's wallets are overflowing with bitcoin, and his luck beyond human comprehension, his wife, himself, and their kids still can't seem to figure out whose leftovers belong to whom. Geoffrey is a man who when comes across a problem has to find a solution, and the solution has to be his way, lest he throw a fit his wife then has to deal with it. 
+Even though Geoffrey's wallets are overflowing with bitcoin, and his luck beyond human comprehension, his kids absolutely abhor his cooking. Geoffrey isn't concerned about cooking with the ingredients he has immediately on hand, as he has the free time to go grocery shopping every week, but he wants to at least be able to more easily know what he needs to buy once he's figured out what he will be cooking throughout the week.
 
 ## Trey’s Roommate Situation
 Trey is too lazy to care about anything outside of his room, let alone his fridge. After an absolutely degenerate session of League of Legends his roommate knocks on his door. The roommate apologized profusely, saying they had just used the last of Trey's single most prized possession. A maple syrup bottle that they thought was their own. This was the third time this week someone had taken his stuff from the fridge. Trey was at his wits end.
