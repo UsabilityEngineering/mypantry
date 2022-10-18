@@ -5,8 +5,7 @@
 Having a ton of free time on his hands, Geoffrey has been seeking out new hobbies and is currently bouncing around between different hobbies until he finds one that sticks.
 Geoffrey’s wife insists that she continue working her job, despite his immense fortune. That doesn’t bother Geoffrey. He quite likes taking care of the home while his wife is out. That includes doing the cooking, although his family has been quite vocal about their unhappiness with his bland meals.
 ### Goals:
-* Be a good father to his children.
-* Find a hobby that doesn’t require him to detract his interest in other hobbies.
+* Find recipes that better appeal to his children's appetites.
 
 ## Trey
 ![](Trey.jpeg)
