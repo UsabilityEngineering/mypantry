@@ -11,9 +11,10 @@ Geoffrey’s wife insists that she continue working her job, despite his immense
 ## Trey
 ![](Trey.jpeg)
 Trey is a 20 year old man, full time college student at Arizona State University majoring in English. His day to day experience involves going to school, doing homework assignments, playing video games and hanging out with friends. He lives in an apartment with three other roommates.
-He wants to learn how to cook, but feels like he often does not have the time to do so. He often resorts to using delivery apps such as Doordash and UberEats for dinner.
+He wants to learn how to cook, but feels like he often does not have the time to do so. He often resorts to using delivery apps such as Doordash and UberEats for dinner, but certain foods have been giving his stomach a rough time.
 ### Goals:
 * Easy to learn recipes with relatively simple ingredients.
+* Find food components that are making his stomach upset.
 
 ## Destiny
 ![](Destiny.jpeg)
@@ -37,14 +38,11 @@ In regards to meals, if she had the time, Julie would prefer to cook a healthy m
 ## Geoffrey’s Home Life
 Even though Geoffrey's wallets are overflowing with bitcoin, and his luck beyond human comprehension, his kids absolutely abhor his cooking. Geoffrey isn't concerned about cooking with the ingredients he has immediately on hand, as he has the free time to go grocery shopping every week, but he wants to at least be able to more easily know what he needs to buy once he's figured out what he will be cooking throughout the week.
 
-## Trey’s Roommate Situation
-Trey is too lazy to care about anything outside of his room, let alone his fridge. After an absolutely degenerate session of League of Legends his roommate knocks on his door. The roommate apologized profusely, saying they had just used the last of Trey's single most prized possession. A maple syrup bottle that they thought was their own. This was the third time this week someone had taken his stuff from the fridge. Trey was at his wits end.
-
 ## Chef Geoffrey
 For the second time this week, Geoffrey was making Kraft mac n cheese for the kids. Unfortunately for our beloved stay at home father, his children have the refined taste of their mother, and are rapidly approaching an age where more eccentric culinary dinner delights are demanded.
 
 ## Stomach vs. Trey
-As expected of our favorite university student, Trey, he's up again at degen hours. This time doing homework! It's 2 AM and he's shirked having dinner due to his intense hyperfixation on his… English. His stomach can no longer take it, he's desperate for a quick fixing, but he used the last of his student loan money last week shopping for some basic ingredients and snacks at the local Winco.
+After another night of sitting on the toilet despite not having had any Taco Bell lately, Trey consulted his doctor and was instructed to keep a food journal to help him find out foods he should avoid. Trey, however, is pretty picky, and wants to instead find out what ingredients he should avoid so he can find alternative recipes for the same food he loves.
 
 ## Julie's Guilt
 Julie's kids love fast food nights, but every time she pulls through the drive through, she has a moment of guilt followed by the thought "am I an abuser for getting fast food so often for these kids?" She wants to try to start cooking for her kids and providing them with healthy meals.
