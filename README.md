@@ -5,14 +5,17 @@ MyPantry is a web app designed to help you find recipes with the ingredients you
 ## UX Team Members
 
 * **[Todd Lange](https://usabilityengineering.github.io/ux-portfolio-hugeblank/)** 
-    * Worked On: competitve analysis, persona and scenarios
+    * Worked On: competitve analysis, persona and scenarios, wireframes
     * Phase I Report: executive summary 
+    * Phase II Report: write-up for informal user feedback
 * **[Ethan Nguyen](https://usabilityengineering.github.io/ux-portfolio-ethanhn11/)** 
-    * Worked On: competitive analysis, heuristic evaluation, persona and scenarios, sketches
+    * Worked On: competitive analysis, heuristic evaluation, persona and scenarios, sketches, wireframes
     * Phase I Report: write-up for competitive analysis
+    * Phase II Report: annotation and write-up for wireframes
 * **[Dylan Wright](https://usabilityengineering.github.io/ux-portfolio-no-bugs-only-features/)** 
-    * Worked On: competitive analysis, heuristic evaluation, persona and scenarios, diagram and sketches
+    * Worked On: competitive analysis, heuristic evaluation, persona and scenarios, diagram and sketches, wireframes
     * Phase I Report: write-up for heuristic evaluation
+    * Phase II Report: exectuive summary and write-up for cognitive walkthrough
 
 # User-Centered Design Artifacts
  
@@ -48,10 +51,21 @@ The team for **MyPantry** has performed some analysis and evaluated that there e
 
 **Executive Summary**
 
-* !!!In a bullet-list, provide a summary that highlights...!!!
-* !!!What you've done during this phase...!!!
-* !!!and what the significance of it is...!!!
-* !!!as an executive would understand.!!!
+Using insights gained from phase I, the team for **MyPantry** has designed wireframes with the goals of **increased versatility** compared to current competitors in the field.
+
+The team has performed more analysis and evaluated that our original vision was too broad, and we have given **new clarity to the direction** of the product.
+
+* A need for a new **major feature** was determined through informal user feedback. 
+    * The combination of a food journal and recipe catalog is a new space in the market with **little to no notable competition**.
+    * There is a demand for this service.
+* More **insights** were gained through a cognitive walkthrough of our wireframes.
+    * Feedback reinforced the need to **narrow the scope** of our product.
+        * The ability for users to label ingredients as belonging to a specific person was scrapped.
+    * The current design does a good job of directing the user through their interaction.
+* With this new **direction** for our product in mind, we have adjusted our personas and scenarios accordingly.
+    * Geoffrey and Trey have had their personas changed.
+    * User story "Trey's Roomate Situation" was removed.
+    * User story "Stomach vs. Trey" was changed.
 
 [Full phase II report](phaseII/)
 
