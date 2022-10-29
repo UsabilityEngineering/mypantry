@@ -60,7 +60,7 @@ Click on the add button under the current step creates a new step line that the 
 
 ![](saved_and_custom_recipes_create_recipe_add_step.png)
 
-### Grocery List
+## Grocery List
 
 The Grocery List tab is a view for users to quickly identify all ingredients they are missing. It pulls recipes that users imported from the “Browse Recipes” tab and compares all ingredients in those recipes with ingredients users previously marked as having in their pantry:
 
@@ -68,7 +68,7 @@ The Grocery List tab is a view for users to quickly identify all ingredients the
 
 Clicking on “Remove from Grocery List” will remove the recipe from this view as well as update the missing ingredients list accordingly.
 
-### Food Diary
+## Food Diary
 
 Lastly, the food diary tab allows users to track meals that they have had as well as create notes on reactions that they have experienced. All recipes that were imported from the “Browse Recipes” tab are listed at the top along with the option to create a diary entry for that recipe:
 
