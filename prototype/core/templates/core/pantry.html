@@ -1,0 +1,131 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{%block content %}
+<div class="container text-center">
+    <br>
+    <div class="row justify-content-md-center">
+      <div class="col-5">
+        <input class="form-control me-2" type="search" placeholder="search for ingredient" aria-label="Search">
+      </div>
+    </div>
+    <br>
+    <div class="row justify-content-md-center">
+        <div class="col-7">
+            <span>current ingredients in your pantry: </span>
+            <span class="badge rounded-pill text-bg-secondary">Mushroom</span>
+            <span class="badge rounded-pill text-bg-secondary">Shallot</span>
+            <span class="badge rounded-pill text-bg-secondary">Garlic</span>
+            <span class="badge rounded-pill text-bg-secondary">Thyme</span>
+            <span class="badge rounded-pill text-bg-secondary">Butter</span>
+            <span class="badge rounded-pill text-bg-secondary">Olive Oil</span>
+            <span class="badge rounded-pill text-bg-secondary">Prosciutto</span>
+            <span class="badge rounded-pill text-bg-secondary">Dijion Mustard</span>
+            <span class="badge rounded-pill text-bg-secondary">Flour</span>
+            <span class="badge rounded-pill text-bg-secondary">Puff Pastery</span>
+        </div>
+    </div>
+</div>
+
+
+<div class="container text-left">
+  <div class="row">
+    <div class="col-12"><h2>Beef</h2></div>
+  </div>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-11">
+      <span class="ingredient_pill badge rounded-pill text-bg-light">
+        <img src={% static 'core/icons/square.svg' %} onclick="checkboxClicked(this)"/>
+        &nbsp&nbspTenderloin
+      </span>
+      <span class="ingredient_pill badge rounded-pill text-bg-light">
+        <img src={% static 'core/icons/square.svg' %} onclick="checkboxClicked(this)"/>
+        &nbsp&nbspChunk
+      </span>
+      <span class="ingredient_pill badge rounded-pill text-bg-light">
+        <img src={% static 'core/icons/square.svg' %} onclick="checkboxClicked(this)"/>
+        &nbsp&nbspFlank
+      </span>
+      <span class="ingredient_pill badge rounded-pill text-bg-light">
+        <img src={% static 'core/icons/square.svg' %} onclick="checkboxClicked(this)"/>
+        &nbsp&nbspRibeye
+      </span>
+      <span class="ingredient_pill badge rounded-pill text-bg-light">
+        <img src={% static 'core/icons/square.svg' %} onclick="checkboxClicked(this)"/>
+        &nbsp&nbspBrisket
+      </span>
+      <span class="ingredient_pill badge rounded-pill text-bg-light">
+        <img src={% static 'core/icons/square.svg' %} onclick="checkboxClicked(this)"/>
+        &nbsp&nbspSirloin
+      </span>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-12"><h2 class="ingredient_categ_title">Chicken</h2></div>
+  </div>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-11">
+      <span class="ingredient_pill badge rounded-pill text-bg-light">
+        <img src={% static 'core/icons/square.svg' %} onclick="checkboxClicked(this)"/>
+        &nbsp&nbspWings
+      </span>
+      <span class="ingredient_pill badge rounded-pill text-bg-light">
+        <img src={% static 'core/icons/square.svg' %} onclick="checkboxClicked(this)"/>
+        &nbsp&nbspBreast
+      </span>
+      <span class="ingredient_pill badge rounded-pill text-bg-light">
+        <img src={% static 'core/icons/square.svg' %} onclick="checkboxClicked(this)"/>
+        &nbsp&nbspThighs
+      </span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12"><h2 class="ingredient_categ_title">Vegtables</h2></div>
+  </div>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-11">
+      <span class="ingredient_pill badge rounded-pill text-bg-light">
+        <img src={% static 'core/icons/square.svg' %} onclick="checkboxClicked(this)"/>
+        &nbsp&nbspCarrot
+      </span>
+      <span class="ingredient_pill badge rounded-pill text-bg-light">
+        <img src={% static 'core/icons/square.svg' %} onclick="checkboxClicked(this)"/>
+        &nbsp&nbspTomato
+      </span>
+      <span class="ingredient_pill badge rounded-pill text-bg-light">
+        <img src={% static 'core/icons/check-square.svg' %} onclick="checkboxClicked(this)"/>
+        &nbsp&nbspGarlic
+      </span>
+      <span class="ingredient_pill badge rounded-pill text-bg-light">
+        <img src={% static 'core/icons/check-square.svg' %} onclick="checkboxClicked(this)"/>
+        &nbsp&nbspShallots
+      </span>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-12"><h2 class="ingredient_categ_title">Seasoning</h2></div>
+  </div>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-11">
+      <span class="ingredient_pill badge rounded-pill text-bg-light">
+        <img src={% static 'core/icons/square.svg' %} onclick="checkboxClicked(this)"/>
+        &nbsp&nbspPaprika
+      </span>
+      <span class="ingredient_pill badge rounded-pill text-bg-light">
+        <img src={% static 'core/icons/square.svg' %} onclick="checkboxClicked(this)"/>
+        &nbsp&nbspDill
+      </span>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

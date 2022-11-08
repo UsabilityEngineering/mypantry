@@ -1,0 +1,231 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{%block content %}
+<div class="container text-center">
+    <br>
+    <div class="row justify-content-md-center">
+      <div class="col-5">
+        <input class="form-control me-2" type="search" placeholder="search for recipe" aria-label="Search">
+      </div>
+    </div>
+    <br>
+    <div class="row justify-content-md-center">
+        <div class="col-6">
+            <span class="dropdown">
+                <button class="btn btn-light dropdown-toggle border border-secondary" type="button" data-toggle='dropdown' data-bs-toggle="dropdown" aria-expanded="false">
+                  Time to Cook: Any
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Any</a></li>
+                  <li><a class="dropdown-item" href="#">< 15 min</a></li>
+                  <li><a class="dropdown-item" href="#">< 30 min</a></li>
+                  <li><a class="dropdown-item" href="#">< 1 hr</a></li>
+                  <li><a class="dropdown-item" href="#">< 2 hr</a></li>
+                </ul>
+            </span>
+            <span class="dropdown">
+                <button class="btn btn-light dropdown-toggle border border-secondary recipe_filter" type="button" data-toggle='dropdown' data-bs-toggle="dropdown" aria-expanded="false">
+                  Health Score: Any
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Any</a></li>
+                  <li><a class="dropdown-item" href="#">Excellent</a></li>
+                  <li><a class="dropdown-item" href="#">Medium</a></li>
+                  <li><a class="dropdown-item" href="#">Low</a></li>
+                </ul>
+            </span>
+            <span class="dropdown">
+                <button class="btn btn-light dropdown-toggle border border-secondary recipe_filter" type="button" data-toggle='dropdown' data-bs-toggle="dropdown" aria-expanded="false">
+                  Difficulty: Any
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Any</a></li>
+                  <li><a class="dropdown-item" href="#">Easy</a></li>
+                  <li><a class="dropdown-item" href="#">Medium</a></li>
+                  <li><a class="dropdown-item" href="#">Hard</a></li>
+                </ul>
+            </span>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col-6">
+            <span class="dropdown">
+                <button class="btn btn-light dropdown-toggle border border-secondary recipe_filter_bot" type="button" data-toggle='dropdown' data-bs-toggle="dropdown" aria-expanded="false">
+                  Show Recipes: show all avaliable recipes
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">show all avaliable recipes</a></li>
+                  <li><a class="dropdown-item" href="#">with only ingredients in my Pantry</a></li>
+                </ul>
+            </span>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<div class="container sort_by_filter">
+    <div class="row">
+        <div class="col-2">
+            <span class="dropdown">
+                <button class="btn btn-light dropdown-toggle border border-secondary recipe_filter_bot" type="button" data-toggle='dropdown' data-bs-toggle="dropdown" aria-expanded="false">
+                  Sort by: Alphabetical
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Alphabetical</a></li>
+                  <li><a class="dropdown-item" href="#">Time to Cook</a></li>
+                  <li><a class="dropdown-item" href="#">Health Score</a></li>
+                </ul>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <img src={% static 'core/img_placeholder.jpg' %} onclick=""/>
+        </div>
+
+        <div class="col-6 recipe_card" data-bs-toggle="modal" data-bs-target="#wellington_card")">
+            <h2>Beef Wellington</h2>
+            <p>Main Ingredients: beef tenderloin, mushroom</p>
+            <p>Time to cook: 2 hrs</p>
+            <p>Difficulty: Hard</p>
+        </div>
+        <div class="col-2">
+            <button type="button" class="btn btn-secondary btn-light border border-secondary mb-3" onclick="addGrocList(this)">Add Recipe Ingredients to Grocery List</span>
+            <button type="button" class="btn btn-secondary btn-light border border-secondary" onclick="importRepFoodDiary(this)">Import Recipe to Food Diary</button>
+        </div>
+        <div class="col-1">
+            <img src={% static 'core/icons/heart.svg' %} onclick="saveRecipe(this)"/>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <img src={% static 'core/img_placeholder.jpg' %} onclick=""/>
+        </div>
+
+        <div class="col-6 recipe_card" data-bs-toggle="modal" data-bs-target="#wellington_card")">
+            <h2>Chicken Alfredo</h2>
+            <p>Main Ingredients: chicken breast, fettuccini</p>
+            <p>Time to cook: 30 minutes</p>
+            <p>Difficulty: Medium</p>
+        </div>
+        <div class="col-2">
+            <button type="button" class="btn btn-secondary btn-light border border-secondary mb-3" onclick="addGrocList(this)">Add Recipe Ingredients to Grocery List</span>
+            <button type="button" class="btn btn-secondary btn-light border border-secondary" onclick="importRepFoodDiary(this)">Import Recipe to Food Diary</button>
+        </div>
+        <div class="col-1">
+            <img src={% static 'core/icons/heart.svg' %} onclick="saveRecipe(this)"/>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <img src={% static 'core/img_placeholder.jpg' %} onclick=""/>
+        </div>
+
+        <div class="col-6 recipe_card" data-bs-toggle="modal" data-bs-target="#wellington_card")">
+            <h2>Mushroom Risotto</h2>
+            <p>Main Ingredients: chicken broth, rice, mushrooms</p>
+            <p>Time to cook: 45 minutes</p>
+            <p>Difficulty: Medium</p>
+        </div>
+        <div class="col-2">
+            <button type="button" class="btn btn-secondary btn-light border border-secondary mb-3" onclick="addGrocList(this)">Add Recipe Ingredients to Grocery List</span>
+            <button type="button" class="btn btn-secondary btn-light border border-secondary" onclick="importRepFoodDiary(this)">Import Recipe to Food Diary</button>
+        </div>
+        <div class="col-1">
+            <img src={% static 'core/icons/heart.svg' %} onclick="saveRecipe(this)"/>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <img src={% static 'core/img_placeholder.jpg' %} onclick=""/>
+        </div>
+
+        <div class="col-6 recipe_card" data-bs-toggle="modal" data-bs-target="#wellington_card")">
+            <h2>Swedish Meatballs</h2>
+            <p>Main Ingredients: ground beef, parsley, garlic</p>
+            <p>Time to cook: 30 minutes</p>
+            <p>Difficulty: Easy</p>
+        </div>
+        <div class="col-2">
+            <button type="button" class="btn btn-secondary btn-light border border-secondary mb-3" onclick="addGrocList(this)">Add Recipe Ingredients to Grocery List</span>
+            <button type="button" class="btn btn-secondary btn-light border border-secondary" onclick="importRepFoodDiary(this)">Import Recipe to Food Diary</button>
+        </div>
+        <div class="col-1">
+            <img src={% static 'core/icons/heart.svg' %} onclick="saveRecipe(this)"/>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="modal fade" id="wellington_card" data-bs-backdrop="static">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <h1 class="modal-title fs-5"> Wellington</h1> -->
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-5">
+                    <img src={% static 'core/img_placeholder_lg.jpg' %}/>
+                </div>
+                <div class="col-7">
+                    <h1>Beef Wellington</h1>
+                    <p>Prep Time: 1 hour 20 mins</p>
+                    <p>Cook Time: 40 mins</p>
+                    <p>Difficulty: Hard</p>
+                    <img src={% static 'core/stars_placeholder.jpg' %}/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <br>
+                    <h3>Ingredients</h3>
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span class="badge rounded-pill text-bg-light border border-secondary">Mushroom</span>
+                    <span class="badge rounded-pill text-bg-light border border-secondary">Shallot</span>
+                    <span class="badge rounded-pill text-bg-light border border-secondary">Garlic</span>
+                    <span class="badge rounded-pill text-bg-light border border-secondary">Thyme</span>
+                    <span class="badge rounded-pill text-bg-light border border-secondary">Butter</span>
+                    <span class="badge rounded-pill text-bg-light border border-secondary">Olive Oil</span>
+                    <span class="badge rounded-pill text-bg-light border border-secondary">Tenderloin</span>
+                    <span class="badge rounded-pill text-bg-light border border-secondary">Prosciutto</span>
+                    <span class="badge rounded-pill text-bg-light border border-secondary">Dijion Mustard</span>
+                    <span class="badge rounded-pill text-bg-light border border-secondary">Flour</span>
+                    <span class="badge rounded-pill text-bg-light border border-secondary">Puff Pastry</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <br>
+                    <h3>Steps</h3>
+                    <ol>
+                        <li>To make the Duxelles: Add mushrooms, shallots, garlic, and thyme to a food processor and pulse until finely chopped. Add butter and olive oil to a large saute pan and set over medium heat. Add the shallot and mushroom mixture and saute  for 8 to 10 minutes until most of the liquid has evaporated. Season with salt and pepper and set aside to cool. </li>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sapien nulla, elementum a ornare consequat, condimentum vitae quam. Vivamus lobortis nisl vitae auctor cursus. Sed fermentum elementum metus eu sollicitudin. Nulla egestas quam velit, euismod venenatis purus dictum at. Vivamus tristique diam purus. Ut vehicula a lorem tincidunt tristique. Maecenas faucibus lorem sit amet faucibus porttitor. Integer fermentum varius erat, at rutrum mi mattis ac. Quisque luctus velit pellentesque lectus feugiat, vel lobortis nisl maximus. Nulla dolor felis, lobortis vitae elementum id, auctor at sem.</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sapien nulla, elementum a ornare consequat, condimentum vitae quam. Vivamus lobortis nisl vitae auctor cursus. Sed fermentum elementum metus eu sollicitudin. Nulla egestas quam velit, euismod venenatis purus dictum at. Vivamus tristique diam purus.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+{% endblock content %}

@@ -1,0 +1,68 @@
+{% extends "core/base.html" %}
+{%block content %}
+<h1>Grocery List</h1>
+<div class="container text-center">
+    <div class="row justify-content-md-center">
+        <div class="col-10">
+            <br>
+            <br>
+            <div class="lead">based on recipes you imported and ingredients in your pantry, you are missing the following ingredients:</div>
+            <br>
+            <span class="badge rounded-pill text-bg-info">Pork loin</span>
+            <span class="badge rounded-pill text-bg-info">Eggs</span>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<h3>Recipes Imported Into Grocery List:</h3>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="row">
+                <div class="col-8">
+                    <h4>Beef Wellington</h4>
+                    <p>Main Ingredients: beef tenderloin, mushroom</p>
+                </div>
+                <div class="col-4">
+                    <button type="button" class="btn btn-secondary btn-light border border-secondary mb-3" onclick="#">Remove From Grocery List</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-8">
+                    <h4>Breaded Porkchops</h4>
+                    <p>Main Ingredients: pork loin</p>
+                </div>
+                <div class="col-4">
+                    <button type="button" class="btn btn-secondary btn-light border border-secondary mb-3" onclick="#">Remove From Grocery List</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<h3>Current Ingredients in Pantry:</h3>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-7">
+            <span class="badge rounded-pill text-bg-secondary">Mushroom</span>
+            <span class="badge rounded-pill text-bg-secondary">Shallot</span>
+            <span class="badge rounded-pill text-bg-secondary">Garlic</span>
+            <span class="badge rounded-pill text-bg-secondary">Thyme</span>
+            <span class="badge rounded-pill text-bg-secondary">Butter</span>
+            <span class="badge rounded-pill text-bg-secondary">Olive Oil</span>
+            <span class="badge rounded-pill text-bg-secondary">Prosciutto</span>
+            <span class="badge rounded-pill text-bg-secondary">Dijion Mustard</span>
+            <span class="badge rounded-pill text-bg-secondary">Flour</span>
+            <span class="badge rounded-pill text-bg-secondary">Puff Pastery</span>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
