@@ -1,4 +1,104 @@
 {% extends "core/base.html" %}
 {%block content %}
+{% load static %}
+<h1>Imported Recipes:</h1>
+<div class="container">
+    <div class="row imported_recipe_diary text-start text-bg-light border border-secondary fs-5 rounded-pill">
+        <div class="col-8 mt-1 mb-1">
+            <span>Breaded Porkchops</span>
+        </div>
+        <div class="col-4">
+            <button type="button" class="btn btn-light border border-secondary mt-1 mb-1" data-bs-toggle="modal" data-bs-target="#createEntryFromImport">Create Diary Entry</button>
+            <button type="button" class="btn btn-light border border-secondary mt-1 mb-1">Remove From Diary</button>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row imported_recipe_diary text-start text-bg-light border border-secondary fs-5 rounded-pill">
+        <div class="col-8 mt-1 mb-1">
+            <span>Beef Wellington</span>
+        </div>
+        <div class="col-4">
+            <button type="button" class="btn btn-light border border-secondary mt-1 mb-1" data-bs-toggle="modal" data-bs-target="#createEntryFromImport">Create Diary Entry</button>
+            <button type="button" class="btn btn-light border border-secondary mt-1 mb-1">Remove From Diary</button>
+        </div>
+    </div>
+</div>
+<h1>My Food Diary</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <button type="button" class="btn btn-light btn-lg border border-secondary mb-4" data-bs-toggle="modal" data-bs-target="#addManualDiaryEntry">Add Manual Diary Entry</button>
+        </div>
+        <div class="col-6 text-end">
+            <a href="/reaction_reporter" type="button" class="btn btn-primary btn-lg border border-secondary">Reaction Reporter</a>
+        </div>
+    </div>
+
+    <h3 class="mt-2">October 24, 2022</h3>
+    <div class="row">
+        <div class="col-3 text-end">
+            <img src={% static 'core/img_placeholder.jpg' %} onclick=""/>
+        </div>
+        <div class="col-9">
+            <h2>Homemade Pizza</h2>
+            <p>Notes: user note preview here</p>
+        </div>
+    </div>
+
+    <h3 class="mt-2">October 22, 2022</h3>
+    <div class="row">
+        <div class="col-3 text-end">
+            <img src={% static 'core/img_placeholder.jpg' %} onclick=""/>
+        </div>
+        <div class="col-9">
+            <h2>Chicken Alfredo</h2>
+            <p>Notes: user note preview here</p>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<!-- manual entry pop up form -->
+<div class="modal fade" id="addManualDiaryEntry" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5">Add a Manual Diary Entry</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- entry from imported recipe pop up form -->
+<div class="modal fade" id="createEntryFromImport" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5">Create Entry For Imported Recipe</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+</div>
+
 
 {% endblock content %}

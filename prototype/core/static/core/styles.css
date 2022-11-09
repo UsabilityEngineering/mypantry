@@ -42,3 +42,7 @@ body {
 .recipe_card {
     cursor: pointer;
 }
+
+.imported_recipe_diary {
+    margin-bottom: 10px;
+}

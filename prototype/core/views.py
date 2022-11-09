@@ -50,3 +50,7 @@ def grocery_list(request):
 @login_required(login_url='/login/')
 def food_diary(request):
     return render(request, 'core/food_diary.html', {"food_diary_active": True})
+
+@login_required(login_url='/login/')
+def reaction_reporter(request):
+    return render(request, 'core/reaction_reporter.html', {"food_diary_active": True})

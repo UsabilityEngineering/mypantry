@@ -28,4 +28,5 @@ urlpatterns = [
     path('saved_and_custom_recipes/', core_views.saved_and_custom_recipes),
     path('grocery_list/', core_views.grocery_list),
     path('food_diary/', core_views.food_diary),
+    path('reaction_reporter/', core_views.reaction_reporter),
 ]

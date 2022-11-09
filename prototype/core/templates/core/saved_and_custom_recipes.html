@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-3 d-grid">
-            <button type="button" class="btn btn-light btn-lg border border-secondary">Add a new custom recipe</button>
+            <button type="button" class="btn btn-light btn-lg border border-secondary" data-bs-toggle="modal" data-bs-target="#addCustomRecipe">Add a new custom recipe</button>
         </div>
     </div>
     <br>
@@ -73,4 +73,25 @@
         </div>
     </div>
 </div>
+
+
+<!-- Add Custom Recipe pop up form -->
+<div class="modal fade" id="addCustomRecipe" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5">Add a Custom Recipe</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 {% endblock content %}
