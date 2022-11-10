@@ -1,17 +1,57 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
+from .models import *
+
 def home(request):
     return render(request, 'core/home.html', {"home_active": True})
 
 def pantry(request):
-    return render(request, 'core/pantry.html', {"pantry_active": True})
+    ingredients = Ingredient.objects.all()
+    categories = Category.objects.all()
+
+    selected = ingredients.filter(selected=True)
+
+    context = {
+        'ingredients': ingredients,
+        'categories': categories,
+        'selected': selected,
+
+        "pantry_active": True,
+    }
+    return render(request, 'core/pantry.html', context)
 
 def browse_recipes(request):
-    return render(request, 'core/browse_recipes.html', {"browse_recipes_active": True})
+    recipes = Recipe.objects.all()
+
+    context = {
+        'recipes': recipes,
+
+        "browse_recipes_active": True,
+    }
+    return render(request, 'core/browse_recipes.html', context)
+
+def recipe(request, pk):
+    recipe = Recipe.objects.get(id=pk)
+
+    context = {
+        'recipe': recipe,
+    }
+    return render(request, 'core/recipe.html', context)
 
 def saved_and_custom_recipes(request):
-    return render(request, 'core/saved_and_custom_recipes.html', {"saved_and_custom_recipes_active": True})
+    recipes = Recipe.objects.all()
+    
+    saved = recipes.filter(favorited=True)
+    custom = recipes.filter(custom=True)
+
+    context = {
+        'saved': saved,
+        'custom': custom,
+
+        "saved_and_custom_recipes_active": True,
+    }
+    return render(request, 'core/saved_and_custom_recipes.html', context)
 
 def grocery_list(request):
     return render(request, 'core/grocery_list.html', {"grocery_list_active": True})
