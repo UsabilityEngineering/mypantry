@@ -21,8 +21,6 @@ from core import views as core_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', core_views.home),
-    path('login/', core_views.user_login),
-    path('logout/', core_views.user_logout),
     path('pantry/', core_views.pantry),
     path('browse_recipes/', core_views.browse_recipes),
     path('saved_and_custom_recipes/', core_views.saved_and_custom_recipes),
