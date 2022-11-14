@@ -33,7 +33,10 @@ class Recipe(models.Model):
     difficulty = models.CharField(max_length=200, choices=difficulty_choices)
     genre = models.ManyToManyField(Genre)
     ingredients = models.ManyToManyField(Ingredient)
-    steps = ArrayField(models.TextField(blank=True))
+    # ArrayField https://docs.djangoproject.com/en/4.1/ref/contrib/postgres/fields/
+    # Querying ArrayField https://docs.djangoproject.com/en/2.0/ref/contrib/postgres/fields/#querying-arrayfield
+    # Form https://docs.djangoproject.com/en/4.1/ref/contrib/postgres/forms/#simplearrayfield
+    steps = ArrayField(models.TextField(blank=True)) 
     favorited = models.BooleanField(default=False)
     planner = models.BooleanField(default=False)
     custom = models.BooleanField(default=False)
