@@ -21,19 +21,19 @@
 </div>
 
 <div class="container text-left">
-  {% for cat in categories %}
+  {% for category in categories %}
   <div class="row">
-    <div class="col-12"><h2>{{cat.name}}</h2></div>
+    <div class="col-12"><h2>{{category.name}}</h2></div>
   </div>
   <div class="row">
     <div class="col-1"></div>
     <div class="col-11">
-      {% for ing in cat.ingredient_set.all %}
+      {% for ingredient in category.ingredient_set.all %}
       <span class="ingredient_pill badge rounded-pill text-bg-light">
         <!-- Update script to include argument for Ingredient (probably primary key?) -->
         <!-- XOR ingredient.selected with True then update box accordingly -->
         <img src={% static 'core/icons/square.svg' %} onclick="checkboxClicked(this)"/>
-        &nbsp&nbsp{{ing.name}}
+        &nbsp&nbsp{{ingredient.name}}
       </span>
       {% endfor %}
     </div>

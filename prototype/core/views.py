@@ -8,7 +8,7 @@ def home(request):
 
 def pantry(request):
     ingredients = Ingredient.objects.all()
-    categories = Category.objects.all()
+    categories = Category.objects.all().order_by('name')
 
     selected = ingredients.filter(selected=True)
 
@@ -54,7 +54,20 @@ def saved_and_custom_recipes(request):
     return render(request, 'core/saved_and_custom_recipes.html', context)
 
 def grocery_list(request):
-    return render(request, 'core/grocery_list.html', {"grocery_list_active": True})
+    planner = Recipe.objects.all().filter(planner=True)
+    missing = []
+    for recipe in planner:
+        for ingredient in recipe.ingredients:
+            if ingredient.selected == false:
+                missing.append(ingredient)
+
+    context = {
+        'planner': planner,
+        'missing': missing,
+
+        "grocery_list_active": True,
+    }
+    return render(request, 'core/grocery_list.html', context)
 
 def food_diary(request):
     return render(request, 'core/food_diary.html', {"food_diary_active": True})

@@ -8,6 +8,9 @@
             <br>
             <div class="lead">based on recipes you imported and ingredients in your pantry, you are missing the following ingredients:</div>
             <br>
+            {% for ingredient in missing %}
+            <span class="badge rounded-pill text-bg-info">{{ingredient.name}}</span>
+            {% endfor %}
             <span class="badge rounded-pill text-bg-info">Pork loin</span>
             <span class="badge rounded-pill text-bg-info">Eggs</span>
         </div>
@@ -21,6 +24,21 @@
 <br>
 <div class="container">
     <div class="row">
+        {% for recipe in planner %}
+        <div class="col-6">
+            <div class="row">
+                <div class="col-8">
+                    <h4>{{recipe.name}}</h4>
+                    <p>Time to cook: {{recipe.time}} </p>
+                    <p>Genres: {% for genre in recipe.genre_set.all %} {{genre.name}}, {% endfor %} </p>
+                    <p>Difficulty: {{recipe.difficulty}} </p>
+                </div>
+                <div class="col-4">
+                    <button type="button" class="btn btn-secondary btn-light border border-secondary mb-3" onclick="#">Remove From Grocery List</span>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
         <div class="col-6">
             <div class="row">
                 <div class="col-8">

@@ -1,6 +1,5 @@
+from django.contrib.postgres.fields import ArrayField
 from django.db import models
-
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 
 class Category(models.Model):
     name = models.CharField(max_length=200)        
@@ -34,7 +33,7 @@ class Recipe(models.Model):
     difficulty = models.CharField(max_length=200, choices=difficulty_choices)
     genre = models.ManyToManyField(Genre)
     ingredients = models.ManyToManyField(Ingredient)
-    steps = models.JSONField()
+    steps = ArrayField(models.TextField(blank=True))
     favorited = models.BooleanField(default=False)
     planner = models.BooleanField(default=False)
     custom = models.BooleanField(default=False)
