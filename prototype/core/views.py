@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
+from .forms import *
 from .models import *
 
 def home(request):
@@ -74,3 +75,22 @@ def food_diary(request):
 
 def reaction_reporter(request):
     return render(request, 'core/reaction_reporter.html', {"food_diary_active": True})
+
+def create_recipe(request):
+    form = RecipeModelForm()
+
+    if request.method == 'POST':
+        form = RecipeModelForm(request.POST)
+        print(form.is_valid())
+        if form.is_valid():
+            print(form.cleaned_data)
+            recipe = form.save(commit=False)
+            #recipe.custom = True
+            recipe.save()
+            return redirect('saved')
+    
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'core/recipe_form.html', context)
