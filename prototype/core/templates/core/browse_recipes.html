@@ -18,10 +18,10 @@
                 </button>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="#">Any</a></li>
-                  <li><a class="dropdown-item" href="#">< 15 min</a></li>
-                  <li><a class="dropdown-item" href="#">< 30 min</a></li>
-                  <li><a class="dropdown-item" href="#">< 1 hr</a></li>
-                  <li><a class="dropdown-item" href="#">< 2 hr</a></li>
+                  <li><a class="dropdown-item" href="#"> <15 min </a></li>
+                  <li><a class="dropdown-item" href="#"> <30 min </a></li>
+                  <li><a class="dropdown-item" href="#"> <1 hr </a></li>
+                  <li><a class="dropdown-item" href="#"> <2 hr </a></li>
                 </ul>
             </span>
             <span class="dropdown">
@@ -88,11 +88,11 @@
         <div class="col-3">
             <img src={% static 'core/img_placeholder.jpg' %} onclick=""/>
         </div>
-        <div class="col-6 recipe_card">
+        <div class="col-6 recipe_card" data-bs-toggle="modal" data-bs-target="#{{recipe.uuid}}">
             <h2>{{recipe.name}}</h2>
             <p>Uploaded by: {{recipe.author}} </p>
-            <p>Time to cook: {{recipe.time}} </p>
-            <p>Genres: {% for genre in recipe.genre_set.all %} {{genre.name}}, {% endfor %} </p>
+            <p>Total Time: {{recipe.total_time}} </p>
+            <p>Genres: {% for genre in recipe.genres.all %} <span class="badge text-decoration-none bg-secondary"> {{genre}} </span> {% endfor %} </p>
             <p>Difficulty: {{recipe.difficulty}} </p>
         </div>
         <div class="col-2">
@@ -104,92 +104,111 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="{{recipe.uuid}}" data-bs-backdrop="static">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+        <h1 class="modal-title fs-5"> {{recipe.author}}'s {{recipe.name}} </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-5">
+                    <img src={% static 'core/img_placeholder_lg.jpg' %}/>
+                </div>
+                <div class="col-7">
+                    <h1> {{recipe.name}} </h1>
+                    <p>Total Time: {{recipe.total_time}} mins</p>
+                    <p>Prep Time: {{recipe.prep_time}} mins</p>
+                    <p>Cook Time: {{recipe.cook_time}} mins</p>
+                    <p>Difficulty: {{recipe.difficulty}}</p>
+                    <img src={% static 'core/stars_placeholder.jpg' %}/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <br>
+                    <h3>Ingredients</h3>
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    {% for ingredient in recipe.ingredients.all %}
+                        <span class="badge rounded-pill text-bg-light border border-secondary">{{ingredient.name}}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <br>
+                    <h3>Steps</h3>
+                    <ol>
+                        <li>{{recipe.step1}}</li>
+                        {% if recipe.step2 != "" %}
+                        <li>{{recipe.step2}}</li>
+                        {% endif %}
+                        {% if recipe.step3 != "" %}
+                        <li>{{recipe.step3}}</li>
+                        {% endif %}
+                        {% if recipe.step4 != "" %}
+                        <li>{{recipe.step4}}</li>
+                        {% endif %}
+                        {% if recipe.step5 != "" %}
+                        <li>{{recipe.step5}}</li>
+                        {% endif %}
+                        {% if recipe.step6 != "" %}
+                        <li>{{recipe.step6}}</li>
+                        {% endif %}
+                        {% if recipe.step7 != "" %}
+                        <li>{{recipe.step7}}</li>
+                        {% endif %}
+                        {% if recipe.step8 != "" %}
+                        <li>{{recipe.step8}}</li>
+                        {% endif %}
+                        {% if recipe.step9 != "" %}
+                        <li>{{recipe.step9}}</li>
+                        {% endif %}
+                        {% if recipe.step10 != "" %}
+                        <li>{{recipe.step10}}</li>
+                        {% endif %}
+                        {% if recipe.step11 != "" %}
+                        <li>{{recipe.step11}}</li>
+                        {% endif %}
+                        {% if recipe.step12 != "" %}
+                        <li>{{recipe.step12}}</li>
+                        {% endif %}
+                        {% if recipe.step13 != "" %}
+                        <li>{{recipe.step13}}</li>
+                        {% endif %}
+                        {% if recipe.step14 != "" %}
+                        <li>{{recipe.step14}}</li>
+                        {% endif %}
+                        {% if recipe.step15 != "" %}
+                        <li>{{recipe.step15}}</li>
+                        {% endif %}
+                        {% if recipe.step16 != "" %}
+                        <li>{{recipe.step16}}</li>
+                        {% endif %}
+                        {% if recipe.step17 != "" %}
+                        <li>{{recipe.step17}}</li>
+                        {% endif %}
+                        {% if recipe.step18 != "" %}
+                        <li>{{recipe.step18}}</li>
+                        {% endif %}
+                        {% if recipe.step19 != "" %}
+                        <li>{{recipe.step19}}</li>
+                        {% endif %}
+                        {% if recipe.step20 != "" %}
+                        <li>{{recipe.step20}}</li>
+                        {% endif %}
+                    </ol>
+                </div>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 {% endfor %}
-
-
-
-<div class="container">
-    <div class="row">
-        <div class="col-3">
-            <img src={% static 'core/img_placeholder.jpg' %} onclick=""/>
-        </div>
-        <div class="col-6 recipe_card" data-bs-toggle="modal" data-bs-target="#wellington_card")">
-            <h2>Beef Wellington</h2>
-            <p>Main Ingredients: beef tenderloin, mushroom</p>
-            <p>Time to cook: 2 hrs</p>
-            <p>Difficulty: Hard</p>
-        </div>
-        <div class="col-2">
-            <button type="button" class="btn btn-secondary btn-light border border-secondary mb-3" onclick="addGrocList(this)">Add Recipe Ingredients to Grocery List</span>
-            <button type="button" class="btn btn-secondary btn-light border border-secondary" onclick="importRepFoodDiary(this)">Import Recipe to Food Diary</button>
-        </div>
-        <div class="col-1">
-            <img src={% static 'core/icons/heart.svg' %} onclick="saveRecipe(this)"/>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-3">
-            <img src={% static 'core/img_placeholder.jpg' %} onclick=""/>
-        </div>
-
-        <div class="col-6 recipe_card" data-bs-toggle="modal" data-bs-target="#wellington_card")">
-            <h2>Chicken Alfredo</h2>
-            <p>Main Ingredients: chicken breast, fettuccini</p>
-            <p>Time to cook: 30 minutes</p>
-            <p>Difficulty: Medium</p>
-        </div>
-        <div class="col-2">
-            <button type="button" class="btn btn-secondary btn-light border border-secondary mb-3" onclick="addGrocList(this)">Add Recipe Ingredients to Grocery List</span>
-            <button type="button" class="btn btn-secondary btn-light border border-secondary" onclick="importRepFoodDiary(this)">Import Recipe to Food Diary</button>
-        </div>
-        <div class="col-1">
-            <img src={% static 'core/icons/heart.svg' %} onclick="saveRecipe(this)"/>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-3">
-            <img src={% static 'core/img_placeholder.jpg' %} onclick=""/>
-        </div>
-
-        <div class="col-6 recipe_card" data-bs-toggle="modal" data-bs-target="#wellington_card")">
-            <h2>Mushroom Risotto</h2>
-            <p>Main Ingredients: chicken broth, rice, mushrooms</p>
-            <p>Time to cook: 45 minutes</p>
-            <p>Difficulty: Medium</p>
-        </div>
-        <div class="col-2">
-            <button type="button" class="btn btn-secondary btn-light border border-secondary mb-3" onclick="addGrocList(this)">Add Recipe Ingredients to Grocery List</span>
-            <button type="button" class="btn btn-secondary btn-light border border-secondary" onclick="importRepFoodDiary(this)">Import Recipe to Food Diary</button>
-        </div>
-        <div class="col-1">
-            <img src={% static 'core/icons/heart.svg' %} onclick="saveRecipe(this)"/>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-3">
-            <img src={% static 'core/img_placeholder.jpg' %} onclick=""/>
-        </div>
-
-        <div class="col-6 recipe_card" data-bs-toggle="modal" data-bs-target="#wellington_card")">
-            <h2>Swedish Meatballs</h2>
-            <p>Main Ingredients: ground beef, parsley, garlic</p>
-            <p>Time to cook: 30 minutes</p>
-            <p>Difficulty: Easy</p>
-        </div>
-        <div class="col-2">
-            <button type="button" class="btn btn-secondary btn-light border border-secondary mb-3" onclick="addGrocList(this)">Add Recipe Ingredients to Grocery List</span>
-            <button type="button" class="btn btn-secondary btn-light border border-secondary" onclick="importRepFoodDiary(this)">Import Recipe to Food Diary</button>
-        </div>
-        <div class="col-1">
-            <img src={% static 'core/icons/heart.svg' %} onclick="saveRecipe(this)"/>
-        </div>
-    </div>
-</div>
 
 {% endblock content %}

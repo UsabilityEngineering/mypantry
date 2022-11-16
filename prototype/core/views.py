@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+import uuid
 
 from .forms import *
 from .models import *
@@ -81,16 +82,22 @@ def create_recipe(request):
 
     if request.method == 'POST':
         form = RecipeModelForm(request.POST)
-        print(form.is_valid())
         if form.is_valid():
-            print(form.cleaned_data)
             recipe = form.save(commit=False)
+            recipe.uuid = uuid.uuid4()
+            recipe.author = "MyPantry"
             #recipe.custom = True
             recipe.save()
+            for genre in form.cleaned_data.get('genres'):
+                recipe.genres.add(genre)
+            for ingredient in form.cleaned_data.get('ingredients'):
+                recipe.ingredients.add(ingredient)
             return redirect('saved')
     
     context = {
         'form': form,
     }
-
     return render(request, 'core/recipe_form.html', context)
+
+#Updating model using AJAX
+#https://stackoverflow.com/questions/46322894/change-a-django-model-with-javascript

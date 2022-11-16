@@ -28,10 +28,13 @@ class Recipe(models.Model):
         ('Hard', 'Hard'),
     ]
     name = models.CharField(max_length=200)
+    uuid = models.UUIDField()
     author = models.CharField(max_length=200)
-    time = models.PositiveSmallIntegerField()
+    total_time = models.PositiveSmallIntegerField()
+    prep_time = models.PositiveSmallIntegerField()
+    cook_time = models.PositiveSmallIntegerField()
     difficulty = models.CharField(max_length=200, choices=difficulty_choices)
-    genre = models.ManyToManyField(Genre)
+    genres = models.ManyToManyField(Genre)
     ingredients = models.ManyToManyField(Ingredient)
     # ArrayField https://docs.djangoproject.com/en/4.1/ref/contrib/postgres/fields/
     # Querying ArrayField https://docs.djangoproject.com/en/2.0/ref/contrib/postgres/fields/#querying-arrayfield
