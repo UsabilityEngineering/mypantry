@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-import uuid
+import uuid, json
 
 from .forms import *
 from .models import *
@@ -10,7 +10,7 @@ def home(request):
 
 def pantry(request):
     ingredients = Ingredient.objects.all()
-    categories = Category.objects.all().order_by('name')
+    categories = Category.objects.all().order_by('name').exclude(name="Default")
 
     selected = ingredients.filter(selected=True)
 
@@ -101,3 +101,18 @@ def create_recipe(request):
 
 #Updating model using AJAX
 #https://stackoverflow.com/questions/46322894/change-a-django-model-with-javascript
+
+def update_ingredient(request, pk):
+    ingredient = Ingredient.objects.get(id=pk)
+    ingredient.selected = ingredient.selected^True
+    ingredient.save()
+    response_data={'val':ingredient.selected^True}
+    return HttpResponse(json.dumps(response_data), content_type="application/json")
+
+def update_selected(request):
+    selected = Ingredient.objects.all().filter(selected=True).order_by('name')
+
+    context = {
+        'selected': selected,
+    }
+    return render(request, 'core/selected_ingredients.html', context)
