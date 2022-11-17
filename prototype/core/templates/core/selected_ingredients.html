@@ -1,0 +1,4 @@
+<span>Selected Ingredients: </span>
+{% for ingredient in selected %}
+    <span class="badge rounded-pill text-bg-secondary">{{ingredient.name}}</span>
+{% endfor %}
