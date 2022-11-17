@@ -16,8 +16,8 @@
     <script src={% static 'core/script.js'%}></script>
 </head>
 <body>
-    <div class="row">
-        <div class="col-11">
+    <div class="row justify-content-md-center">
+        <div class="col-10">
         <ul class="nav nav-tabs justify-content-left">
             <li class="nav-item">
                 {% if home_active %}
@@ -67,11 +67,6 @@
             </li>
         </ul>
         </div>
-        {% if not signed_out %}
-        <div class="col-1">
-            <a type="button" class="btn btn-outline-dark" href="/logout/">Sign out</a>
-        </div>
-        {% endif %}
     </div>
     <div class="content">{% block content %}{% endblock %}</div>
 </body>

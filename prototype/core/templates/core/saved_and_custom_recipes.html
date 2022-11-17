@@ -1,8 +1,42 @@
 {% extends "core/base.html" %}
 {%block content %}
 {% load static %}
+
 <h2>Custom Recipes</h2>
+<div class="row">
+    <div class="col-3 d-grid">
+        <a class="btn btn-light btn-lg border border-secondary" href="{% url 'create_recipe' %}">Add a new custom recipe</a>
+    </div>
+</div>
+{% for recipe in custom %}
 <div class="container">
+    <div class="row">
+        <div class="col-3">
+            <img src={% static 'core/img_placeholder.jpg' %} onclick=""/>
+        </div>
+        <div class="col-6 recipe_card" data-bs-toggle="modal" data-bs-target="#{{recipe.uuid}}">
+            <h2>{{recipe.name}}</h2>
+            <p>Uploaded by: {{recipe.author}} </p>
+            <p>Total Time: {{recipe.total_time}} mins </p>
+            <p>Genres: {% for genre in recipe.genres.all %} <span class="badge text-decoration-none bg-secondary"> {{genre}} </span> {% endfor %} </p>
+            <p>Difficulty: {{recipe.difficulty}} </p>
+        </div>
+        <div class="col-2">
+            <button type="button" class="btn btn-secondary btn-light border border-secondary mb-3" onclick="addGrocList(this)">Add Recipe Ingredients to Grocery List</span>
+            <button type="button" class="btn btn-secondary btn-light border border-secondary" onclick="importRepFoodDiary(this)">Import Recipe to Food Diary</button>
+        </div>
+        <div class="col-1">
+            <img src={% static 'core/icons/heart.svg' %} onclick="saveRecipe(this)"/>
+        </div>
+    </div>
+</div>
+
+{% include 'core/recipe_modal.html' %}
+
+{% endfor %}
+
+
+<!--<div class="container">
     <div class="row">
         <div class="col-3 d-grid">
             <a class="btn btn-light btn-lg border border-secondary" href="{% url 'create_recipe' %}">Add a new custom recipe</a>
@@ -14,7 +48,7 @@
             <img src={% static 'core/img_placeholder.jpg' %} onclick=""/>
         </div>
 
-        <div class="col-6 recipe_card" data-bs-toggle="modal" data-bs-target="#wellington_card")">
+        <div class="col-6 recipe_card" data-bs-toggle="modal" data-bs-target="#wellington_card">
             <h2>Homemade Pizza</h2>
             <p>Main Ingredients: bread flour, tomato, mozzarella cheese</p>
             <p>Time to cook: 2 hours</p>
@@ -25,28 +59,54 @@
             <button type="button" class="btn btn-secondary btn-light border border-secondary" onclick="importRepFoodDiary(this)">Import Recipe to Food Diary</button>
         </div>
         <div class="col-1">
-            <!-- <img src={% static 'core/icons/heart.svg' %} onclick="saveRecipe(this)"/> -->
+            <img src={% static 'core/icons/heart.svg' %} onclick="saveRecipe(this)"/>
         </div>
     </div>
-</div>
+</div> -->
 
 
 <h2>Saved Recipes</h2>
+{% for recipe in saved %}
 <div class="container">
     <div class="row">
         <div class="col-3">
             <img src={% static 'core/img_placeholder.jpg' %} onclick=""/>
         </div>
+        <div class="col-6 recipe_card" data-bs-toggle="modal" data-bs-target="#{{recipe.uuid}}">
+            <h2>{{recipe.name}}</h2>
+            <p>Uploaded by: {{recipe.author}} </p>
+            <p>Total Time: {{recipe.total_time}} </p>
+            <p>Genres: {% for genre in recipe.genres.all %} <span class="badge text-decoration-none bg-secondary"> {{genre}} </span> {% endfor %} </p>
+            <p>Difficulty: {{recipe.difficulty}} </p>
+        </div>
+        <div class="col-2">
+            <button type="button" class="btn btn-secondary btn-light border border-secondary mb-3" onclick="addGrocList(this)">Add Recipe Ingredients to Grocery List</span>
+            <button type="button" class="btn btn-secondary btn-light border border-secondary" onclick="importRepFoodDiary(this)">Import Recipe to Food Diary</button>
+        </div>
+        <div class="col-1">
+            <img src={% static 'core/icons/heart.svg' %} onclick="saveRecipe(this)"/>
+        </div>
+    </div>
+</div>
 
-        <div class="col-6 recipe_card" data-bs-toggle="modal" data-bs-target="#wellington_card")">
+{% include 'core/recipe_modal.html' %}
+
+{% endfor %}
+<!--<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <img src={% static 'core/img_placeholder.jpg' %} onclick=""/>
+        </div>
+
+        <div class="col-6 recipe_card" data-bs-toggle="modal" data-bs-target="#wellington_card">
             <h2>Chicken Alfredo</h2>
             <p>Main Ingredients: chicken breast, fettuccini</p>
             <p>Time to cook: 30 minutes</p>
             <p>Difficulty: Medium</p>
         </div>
         <div class="col-2">
-            <!-- <button type="button" class="btn btn-secondary btn-light border border-secondary mb-3" onclick="addGrocList(this)">Add Recipe Ingredients to Grocery List</span> -->
-            <!-- <button type="button" class="btn btn-secondary btn-light border border-secondary" onclick="importRepFoodDiary(this)">Import Recipe to Food Diary</button> -->
+            <button type="button" class="btn btn-secondary btn-light border border-secondary mb-3" onclick="addGrocList(this)">Add Recipe Ingredients to Grocery List</span>
+            <button type="button" class="btn btn-secondary btn-light border border-secondary" onclick="importRepFoodDiary(this)">Import Recipe to Food Diary</button>
         </div>
         <div class="col-1">
             <img src={% static 'core/icons/heart-fill.svg' %} onclick="saveRecipe(this)"/>
@@ -65,17 +125,17 @@
             <p>Difficulty: Medium</p>
         </div>
         <div class="col-2">
-            <!-- <button type="button" class="btn btn-secondary btn-light border border-secondary mb-3" onclick="addGrocList(this)">Add Recipe Ingredients to Grocery List</span> -->
-            <!-- <button type="button" class="btn btn-secondary btn-light border border-secondary" onclick="importRepFoodDiary(this)">Import Recipe to Food Diary</button> -->
+            <button type="button" class="btn btn-secondary btn-light border border-secondary mb-3" onclick="addGrocList(this)">Add Recipe Ingredients to Grocery List</span>
+            <button type="button" class="btn btn-secondary btn-light border border-secondary" onclick="importRepFoodDiary(this)">Import Recipe to Food Diary</button>
         </div>
         <div class="col-1">
             <img src={% static 'core/icons/heart-fill.svg' %} onclick="saveRecipe(this)"/>
         </div>
     </div>
-</div>
+</div> -->
 
 
-<!-- Add Custom Recipe pop up form -->
+<!-- Add Custom Recipe pop up form
 <div class="modal fade" id="addCustomRecipe" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -92,6 +152,6 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
 {% endblock content %}

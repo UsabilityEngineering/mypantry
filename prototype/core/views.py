@@ -10,9 +10,9 @@ def home(request):
 
 def pantry(request):
     ingredients = Ingredient.objects.all()
-    categories = Category.objects.all().order_by('name').exclude(name="Default")
+    categories = Category.objects.all().exclude(name="Default").order_by('name')
 
-    selected = ingredients.filter(selected=True)
+    selected = ingredients.filter(selected=True).order_by('name')
 
     context = {
         'ingredients': ingredients,
@@ -44,7 +44,7 @@ def recipe(request, pk):
 def saved_and_custom_recipes(request):
     recipes = Recipe.objects.all()
     
-    saved = recipes.filter(favorited=True)
+    saved = recipes.filter(favorited=True).exclude(custom=True)
     custom = recipes.filter(custom=True)
 
     context = {
