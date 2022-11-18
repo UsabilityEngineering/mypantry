@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <!-- Render form manually: https://docs.djangoproject.com/en/4.1/topics/forms/#rendering-fields-manually -->
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock %}
