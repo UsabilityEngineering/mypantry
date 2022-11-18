@@ -20,13 +20,13 @@
 <div class="container text-left">
   {% for category in categories %}
   <div class="row">
-    <div class="col-12"><h2>{{category.name}}</h2></div>
+    <div class="col-12 mb-3"><h2>{{category.name}}</h2></div>
   </div>
   <div class="row">
     <div class="col-1"></div>
     <div class="col-11">
       {% for ingredient in category.ingredient_set.all %}
-      <span class="ingredient_pill badge rounded-pill text-bg-light">
+      <span class="ingredient_pill badge rounded-pill text-bg-light mb-2">
         <img class="ingredient_select" data-pk = "{{ingredient.id}}" 
             src={% if ingredient.selected %} {% static 'core/icons/check-square.svg' %} 
                 {% else %} {% static 'core/icons/square.svg' %} {% endif %} 

@@ -9,18 +9,7 @@
       <div class="col-5">
         <input class="form-control me-2" type="search" placeholder="search for recipe" aria-label="Search">
       </div>
-      <div class="col-2">
-        <span class="dropdown">
-            <button class="btn btn-light dropdown-toggle border border-secondary recipe_filter_bot" type="button" data-toggle='dropdown' data-bs-toggle="dropdown" aria-expanded="false">
-              Sort by: Alphabetical
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Alphabetical</a></li>
-              <li><a class="dropdown-item" href="#">Time to Cook</a></li>
-              <li><a class="dropdown-item" href="#">Health Score</a></li>
-            </ul>
-        </span>
-    </div>
+      <div class="col-2"></div>
     </div>
     <br>
     <div class="row justify-content-md-center">
@@ -75,6 +64,17 @@
       </div>
     </div>
 </div>
+
+<span class="dropdown">
+  <button class="btn btn-light dropdown-toggle border border-secondary recipe_filter_bot mb-3" type="button" data-toggle='dropdown' data-bs-toggle="dropdown" aria-expanded="false">
+    Sort by: Alphabetical
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Alphabetical</a></li>
+    <li><a class="dropdown-item" href="#">Time to Cook</a></li>
+    <li><a class="dropdown-item" href="#">Health Score</a></li>
+  </ul>
+</span>
 
 {% for recipe in recipes %}
 <div class="container">
