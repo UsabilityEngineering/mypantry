@@ -1,4 +1,4 @@
-{% extends 'core/base.html' %}
+{% include 'core/head.html' %}
 
 {% load static %}
 
@@ -7,8 +7,11 @@
 <form action="" method="POST">
     {% csrf_token %}
     <!-- Render form manually: https://docs.djangoproject.com/en/4.1/topics/forms/#rendering-fields-manually -->
-    {{ form }}
+    <!-- https://www.youtube.com/watch?v=Pilzks6HeIg -->
+    {{ form.ingredients }}
     <input type="submit" value="Submit">
 </form>
+
+{{ form.media.js }}
 
 {% endblock %}
