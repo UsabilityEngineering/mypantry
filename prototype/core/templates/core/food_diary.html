@@ -102,7 +102,7 @@
           <div class="modal-body">
               {% csrf_token %}
               <span>Recipe Name: </span>
-              {{ diary_entry_form.recipe_name }}
+              <span id="imported_recipe_name">{{ diary_entry_form.recipe_name }}</span>
               <br>
               <br>
               <span>Date Cooked: </span>

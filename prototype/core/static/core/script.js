@@ -44,6 +44,14 @@ function test() {
     console.log('hello there')
 }
 
+function fillRecipeName(recipe) {
+    var recipe_name_span = document.getElementById('imported_recipe_name');
+    var recipe_name_box = recipe_name_span.querySelector('input');
+    
+    var imported_recipe_name = recipe.parentElement.parentElement.querySelector('span')
+    recipe_name_box.value = imported_recipe_name.innerText;
+}
+
 
 
 

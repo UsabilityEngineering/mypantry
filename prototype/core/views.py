@@ -73,10 +73,10 @@ def grocery_list(request):
 
 def food_diary(request):
     if request.method == 'POST':
-        if 'add_manual_diary_entry' in request.POST:
-            diary_entry = DiaryEntryForm(request.POST)
-            diary_entry.save()
-            return redirect("/food_diary")
+        # if 'add_manual_diary_entry' in request.POST:
+        diary_entry = DiaryEntryForm(request.POST)
+        diary_entry.save()
+        return redirect("/food_diary")
 
     
     diary_entry_form = DiaryEntryForm()
