@@ -72,7 +72,21 @@ def grocery_list(request):
     return render(request, 'core/grocery_list.html', context)
 
 def food_diary(request):
-    return render(request, 'core/food_diary.html', {"food_diary_active": True})
+    if request.method == 'POST':
+        if 'add_manual_diary_entry' in request.POST:
+            diary_entry = DiaryEntryForm(request.POST)
+            diary_entry.save()
+            return redirect("/food_diary")
+
+    
+    diary_entry_form = DiaryEntryForm()
+
+    context = {
+        "food_diary_active": True,
+        "diary_entry_form": diary_entry_form,
+        "diary_entries": DiaryEntr.objects.all()
+    }
+    return render(request, 'core/food_diary.html', context)
 
 def reaction_reporter(request):
     return render(request, 'core/reaction_reporter.html', {"food_diary_active": True})

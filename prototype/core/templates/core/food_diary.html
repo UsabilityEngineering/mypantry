@@ -8,7 +8,7 @@
             <span>Breaded Porkchops</span>
         </div>
         <div class="col-4">
-            <button type="button" class="btn btn-light border border-secondary mt-1 mb-1" data-bs-toggle="modal" data-bs-target="#createEntryFromImport">Create Diary Entry</button>
+            <button type="button" class="btn btn-light border border-secondary mt-1 mb-1" data-bs-toggle="modal" data-bs-target="#createEntryFromImport" onclick="fillRecipeName(this)">Create Diary Entry</button>
             <button type="button" class="btn btn-light border border-secondary mt-1 mb-1">Remove From Diary</button>
         </div>
     </div>
@@ -19,7 +19,7 @@
             <span>Beef Wellington</span>
         </div>
         <div class="col-4">
-            <button type="button" class="btn btn-light border border-secondary mt-1 mb-1" data-bs-toggle="modal" data-bs-target="#createEntryFromImport">Create Diary Entry</button>
+            <button type="button" class="btn btn-light border border-secondary mt-1 mb-1" data-bs-toggle="modal" data-bs-target="#createEntryFromImport" onclick="fillRecipeName(this)">Create Diary Entry</button>
             <button type="button" class="btn btn-light border border-secondary mt-1 mb-1">Remove From Diary</button>
         </div>
     </div>
@@ -35,29 +35,18 @@
         </div>
     </div>
 
-    <h3 class="mt-2">October 24, 2022</h3>
+    {% for e in diary_entries|dictsortreversed:"date_cooked" %}
+    <h3 class="mt-2">{{e.date_cooked}}</h3>
     <div class="row">
         <div class="col-3 text-end">
             <img src={% static 'core/img_placeholder.jpg' %} onclick=""/>
         </div>
         <div class="col-9">
-            <h2>Homemade Pizza</h2>
-            <p>Notes: user note preview here</p>
+            <h2>{{e.recipe_name}}</h2>
+            <p>Notes: {{e.notes}}</p>
         </div>
     </div>
-
-    <h3 class="mt-2">October 22, 2022</h3>
-    <div class="row">
-        <div class="col-3 text-end">
-            <img src={% static 'core/img_placeholder.jpg' %} onclick=""/>
-        </div>
-        <div class="col-9">
-            <h2>Chicken Alfredo</h2>
-            <p>Notes: user note preview here</p>
-        </div>
-    </div>
-
-
+    {% endfor %}
 </div>
 
 
@@ -70,13 +59,33 @@
           <h1 class="modal-title fs-5">Add a Manual Diary Entry</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <form method="POST">
         <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Submit</button>
-        </div>
+            {% csrf_token %}
+            <span>Recipe Name: </span>
+            {{ diary_entry_form.recipe_name }}
+            <br>
+            <br>
+            <span>Date Cooked: </span>
+            {{ diary_entry_form.date_cooked}}
+            <br>
+            <br>
+            <span>Notes:</span>
+            <br>
+            <div class="container">
+              <div class="row">
+                <div class="col-2"></div>
+                <div class="col-10">
+                  {{ diary_entry_form.notes }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button submit" class="btn btn-primary" name = "add_manual_diary_entry">Submit</button>
+          </div>
+        </form>
       </div>
     </div>
 </div>
@@ -89,13 +98,33 @@
           <h1 class="modal-title fs-5">Create Entry For Imported Recipe</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Submit</button>
-        </div>
+        <form method="POST">
+          <div class="modal-body">
+              {% csrf_token %}
+              <span>Recipe Name: </span>
+              {{ diary_entry_form.recipe_name }}
+              <br>
+              <br>
+              <span>Date Cooked: </span>
+              {{ diary_entry_form.date_cooked}}
+              <br>
+              <br>
+              <span>Notes:</span>
+              <br>
+              <div class="container">
+                <div class="row">
+                  <div class="col-2"></div>
+                  <div class="col-10">
+                    {{ diary_entry_form.notes }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button submit" class="btn btn-primary" name = "add_imported_diary_entry">Submit</button>
+            </div>
+          </form>
       </div>
     </div>
 </div>

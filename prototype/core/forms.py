@@ -1,3 +1,4 @@
+import datetime
 from django import forms
 from django.forms import ModelForm
 
@@ -27,4 +28,11 @@ class RecipeModelForm(ModelForm):
         queryset=Ingredient.objects.all(),
         widget=forms.CheckboxSelectMultiple
     )
+
+class DiaryEntryForm(ModelForm):
+    date_cooked = forms.DateField(initial=datetime.date.today)
+
+    class Meta:
+        model = DiaryEntr
+        fields = ('recipe_name', 'date_cooked', 'notes')
     
