@@ -83,7 +83,7 @@ def food_diary(request):
     context = {
         "food_diary_active": True,
         "diary_entry_form": diary_entry_form,
-        "diary_entries": DiaryEntr.objects.all()
+        "diary_entries": DiaryEntry.objects.all()
     }
     return render(request, 'core/food_diary.html', context)
 
