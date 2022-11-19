@@ -1,5 +1,4 @@
-{% include 'core/head.html' %}
-
+{% extends "core/base.html" %}
 {% load static %}
 
 {% block content %}
@@ -21,9 +20,11 @@
         vertical-align: middle;
     }
 </style>
-
 <body>
-
+    <div class="modal-header">
+        <h1 class="modal-title fs-5"></h1>
+          <a href="/saved_and_custom_recipes" type="button" class="btn-close" aria-label="Close"></a>
+        </div>
     <div class="row justify-content-md-center">
         <div class="col-10">
             <h2> Create Recipe </h2>
@@ -81,175 +82,259 @@
                         {{form.step1}}
                     </div>
                 </div>
+                <div onclick="addStep()" onclick="addStep()" id="add1">
+                    <img src={% static 'core/icons/plus-circle.svg' %}/>
+                </div>
                 <br>
-                <div class="row">
+                <div class="row" id="step2">
                     <div class="col-sm-1">
                         <label class="align-vert"> <h3> 2. </h3> </label>
                     </div>
                     <div class="col">
                         {{form.step2}}
+                        <img onclick="removeStep()" id="rm2" src={% static 'core/icons/dash-circle.svg' %}/>
                     </div>
                 </div>
+                <div onclick="addStep()" id="add2">
+                    <img src={% static 'core/icons/plus-circle.svg' %}/>
+                </div>
                 <br>
-                <div class="row">
+                <div class="row" id="step3">
                     <div class="col-sm-1">
                         <label class="align-vert"> <h3> 3. </h3> </label>
                     </div>
                     <div class="col">
                         {{form.step3}}
+                        <img onclick="removeStep()" id="rm3" src={% static 'core/icons/dash-circle.svg' %}/>
                     </div>
                 </div>
+                <div onclick="addStep()" id="add3">
+                    <img src={% static 'core/icons/plus-circle.svg' %}/>
+                </div>
                 <br>
-                <div class="row">
+                <div class="row" id="step4">
                     <div class="col-sm-1">
                         <label class="align-vert"> <h3> 4. </h3> </label>
                     </div>
                     <div class="col">
                         {{form.step4}}
+                        <img onclick="removeStep()" id="rm4" src={% static 'core/icons/dash-circle.svg' %}/>
                     </div>
                 </div>
+                <div onclick="addStep()" id="add4">
+                    <img src={% static 'core/icons/plus-circle.svg' %}/>
+                </div>
                 <br>
-                <div class="row">
+                <div class="row" id="step5">
                     <div class="col-sm-1">
                         <label class="align-vert"> <h3> 5. </h3> </label>
                     </div>
                     <div class="col">
                         {{form.step5}}
+                        <img onclick="removeStep()" id="rm5" src={% static 'core/icons/dash-circle.svg' %}/>
                     </div>
                 </div>
+                <div onclick="addStep()" id="add5">
+                    <img src={% static 'core/icons/plus-circle.svg' %}/>
+                </div>
                 <br>
-                <div class="row">
+                <div class="row" id="step6">
                     <div class="col-sm-1">
                         <label class="align-vert"> <h3> 6. </h3> </label>
                     </div>
                     <div class="col">
                         {{form.step6}}
+                        <img onclick="removeStep()" id="rm6" src={% static 'core/icons/dash-circle.svg' %}/>
                     </div>
                 </div>
+                <div onclick="addStep()" id="add6">
+                    <img src={% static 'core/icons/plus-circle.svg' %}/>
+                </div>
                 <br>
-                <div class="row">
+                <div class="row" id="step7">
                     <div class="col-sm-1">
                         <label class="align-vert"> <h3> 7. </h3> </label>
                     </div>
                     <div class="col">
                         {{form.step7}}
+                        <img onclick="removeStep()" id="rm7" src={% static 'core/icons/dash-circle.svg' %}/>
                     </div>
                 </div>
+                <div onclick="addStep()" id="add7">
+                    <img src={% static 'core/icons/plus-circle.svg' %}/>
+                </div>
                 <br>
-                <div class="row">
+                <div class="row" id="step8">
                     <div class="col-sm-1">
                         <label class="align-vert"> <h3> 8. </h3> </label>
                     </div>
                     <div class="col">
                         {{form.step8}}
+                        <img onclick="removeStep()" id="rm8" src={% static 'core/icons/dash-circle.svg' %}/>
                     </div>
                 </div>
+                <div onclick="addStep()" id="add8">
+                    <img src={% static 'core/icons/plus-circle.svg' %}/>
+                </div>
                 <br>
-                <div class="row">
+                <div class="row" id="step9">
                     <div class="col-sm-1">
                         <label class="align-vert"> <h3> 9. </h3> </label>
                     </div>
                     <div class="col">
                         {{form.step9}}
+                        <img onclick="removeStep()" id="rm9" src={% static 'core/icons/dash-circle.svg' %}/>
                     </div>
                 </div>
+                <div onclick="addStep()" id="add9">
+                    <img src={% static 'core/icons/plus-circle.svg' %}/>
+                </div>
                 <br>
-                <div class="row">
+                <div class="row" id="step10">
                     <div class="col-sm-1">
                         <label class="align-vert"> <h3> 10. </h3> </label>
                     </div>
                     <div class="col">
                         {{form.step10}}
+                        <img onclick="removeStep()" id="rm10" src={% static 'core/icons/dash-circle.svg' %}/>
                     </div>
                 </div>
+                <div onclick="addStep()" id="add10">
+                    <img src={% static 'core/icons/plus-circle.svg' %}/>
+                </div>
                 <br>
-                <div class="row">
+                <div class="row" id="step11">
                     <div class="col-sm-1">
                         <label class="align-vert"> <h3> 11. </h3> </label>
                     </div>
                     <div class="col">
                         {{form.step11}}
+                        <img onclick="removeStep()" id="rm11" src={% static 'core/icons/dash-circle.svg' %}/>
                     </div>
                 </div>
+                <div onclick="addStep()" id="add11">
+                    <img src={% static 'core/icons/plus-circle.svg' %}/>
+                </div>
                 <br>
-                <div class="row">
+                <div class="row" id="step12">
                     <div class="col-sm-1">
                         <label class="align-vert"> <h3> 12. </h3> </label>
                     </div>
                     <div class="col">
                         {{form.step12}}
+                        <img onclick="removeStep()" id="rm12" src={% static 'core/icons/dash-circle.svg' %}/>
                     </div>
                 </div>
+                <div onclick="addStep()" id="add12">
+                    <img src={% static 'core/icons/plus-circle.svg' %}/>
+                </div>
                 <br>
-                <div class="row">
+                <div class="row"  id="step13">
                     <div class="col-sm-1">
                         <label class="align-vert"> <h3> 13. </h3> </label>
                     </div>
                     <div class="col">
                         {{form.step13}}
+                        <img onclick="removeStep()" id="rm13" src={% static 'core/icons/dash-circle.svg' %}/>
+
                     </div>
                 </div>
+                <div onclick="addStep()" id="add13">
+                    <img src={% static 'core/icons/plus-circle.svg' %}/>
+                </div>
                 <br>
-                <div class="row">
+                <div class="row" id="step14">
                     <div class="col-sm-1">
                         <label class="align-vert"> <h3> 14. </h3> </label>
                     </div>
                     <div class="col">
                         {{form.step14}}
+                        <img onclick="removeStep()" id="rm14" src={% static 'core/icons/dash-circle.svg' %}/>
+
                     </div>
                 </div>
+                <div onclick="addStep()" id="add14">
+                    <img src={% static 'core/icons/plus-circle.svg' %}/>
+                </div>
                 <br>
-                <div class="row">
+                <div class="row"  id="step15">
                     <div class="col-sm-1">
                         <label class="align-vert"> <h3> 15. </h3> </label>
                     </div>
                     <div class="col">
                         {{form.step15}}
+                        <img onclick="removeStep()" id="rm15" src={% static 'core/icons/dash-circle.svg' %}/>
+
                     </div>
                 </div>
+                <div onclick="addStep()" id="add15">
+                    <img src={% static 'core/icons/plus-circle.svg' %}/>
+                </div>
                 <br>
-                <div class="row">
+                <div class="row" id="step16">
                     <div class="col-sm-1">
                         <label class="align-vert"> <h3> 16. </h3> </label>
                     </div>
                     <div class="col">
                         {{form.step16}}
+                        <img onclick="removeStep()" id="rm16" src={% static 'core/icons/dash-circle.svg' %}/>
+
                     </div>
                 </div>
+                <div onclick="addStep()" id="add16">
+                    <img src={% static 'core/icons/plus-circle.svg' %}/>
+                </div>
                 <br>
-                <div class="row">
+                <div class="row" id="step17">
                     <div class="col-sm-1">
                         <label class="align-vert"> <h3> 17. </h3> </label>
                     </div>
                     <div class="col">
                         {{form.step17}}
+                        <img onclick="removeStep()" id="rm17" src={% static 'core/icons/dash-circle.svg' %}/>
+
                     </div>
                 </div>
+                <div onclick="addStep()" id="add17">
+                    <img src={% static 'core/icons/plus-circle.svg' %}/>
+                </div>
                 <br>
-                <div class="row">
+                <div class="row" id="step18">
                     <div class="col-sm-1">
                         <label class="align-vert"> <h3> 18. </h3> </label>
                     </div>
                     <div class="col">
                         {{form.step18}}
+                        <img onclick="removeStep()" id="rm18" src={% static 'core/icons/dash-circle.svg' %}/>
+
                     </div>
                 </div>
+                <div onclick="addStep()" id="add18">
+                    <img src={% static 'core/icons/plus-circle.svg' %}/>
+                </div>
                 <br>
-                <div class="row">
+                <div class="row" id="step19">
                     <div class="col-sm-1">
                         <label class="align-vert"> <h3> 19. </h3> </label>
                     </div>
                     <div class="col">
                         {{form.step19}}
+                        <img onclick="removeStep()" id="rm19" src={% static 'core/icons/dash-circle.svg' %}/>
+
                     </div>
                 </div>
+                <div onclick="addStep()" id="add19">
+                    <img src={% static 'core/icons/plus-circle.svg' %}/>
+                </div>
                 <br>
-                <div class="row">
+                <div class="row" id="step20">
                     <div class="col-sm-1">
                         <label class="align-vert"> <h3> 20. </h3> </label>
                     </div>
                     <div class="col">
                         {{form.step20}}
+                        <img onclick="removeStep()" id="rm20" src={% static 'core/icons/dash-circle.svg' %}/>
+
                     </div>
                 </div>
                 <br>
@@ -268,5 +353,33 @@
     </div>
 
 </body>
+<script>
+var stepIndex = 1;
+
+for(let i = 2; i <= 20; i++) {
+    document.getElementById("rm" + i).style.display = "none";
+    document.getElementById("step" + i).style.display = "none";
+    document.getElementById("add" + i).style.display = "none";
+}
+
+
+function addStep() {
+    document.getElementById("add" + stepIndex).style.display = "none";
+    if(stepIndex != 1)
+        document.getElementById("rm" + stepIndex).style.display = "none";
+    stepIndex++;
+    document.getElementById("rm" + stepIndex).style.display = "inline";
+    document.getElementById("step" + stepIndex).style.display = "inline-block";
+    document.getElementById("add" + stepIndex).style.display = "block";
+}
+
+function removeStep() {
+    document.getElementById("rm" + stepIndex).style.display = "none";
+    document.getElementById("step" + stepIndex).style.display = "none";
+    document.getElementById("add" + stepIndex).style.display = "none";
+    stepIndex--;
+    document.getElementById("add" + stepIndex).style.display = "block";
+}
+</script>
 
 {% endblock %}

@@ -124,6 +124,7 @@ def create_recipe(request):
     
     context = {
         'form': form,
+        "saved_and_custom_recipes_active": True,
     }
     return render(request, 'core/recipe_form.html', context)
 
