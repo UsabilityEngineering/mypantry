@@ -51,7 +51,3 @@ body {
 .imported_recipe_diary {
     margin-bottom: 10px;
 }
-
-#id_genres, #id_ingredients {
-    width: 100%;
-}

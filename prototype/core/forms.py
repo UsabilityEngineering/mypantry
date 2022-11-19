@@ -7,7 +7,7 @@ from .models import *
 
 class IngredientWidget(s2forms.ModelSelect2MultipleWidget):
     search_fields = [
-        "name__icontains"
+        "name__icontains",
     ]
 
 class GenreWidget(s2forms.ModelSelect2MultipleWidget):
@@ -27,9 +27,29 @@ class RecipeModelForm(ModelForm):
             'step16', 'step17', 'step18', 'step19', 'step20',
         ]
         widgets = {
+            'name': forms.TextInput(attrs={'placeholder':"Recipe Name"}),
             'ingredients': IngredientWidget,
             'genres': GenreWidget,
-            'step1': forms.Textarea(attrs={'rows':4,'cols':15})
+            'step1': forms.Textarea(attrs={'rows':3,'cols':89}),
+            'step2': forms.Textarea(attrs={'rows':3,'cols':89}),
+            'step3': forms.Textarea(attrs={'rows':3,'cols':89}),
+            'step4': forms.Textarea(attrs={'rows':3,'cols':89}),
+            'step5': forms.Textarea(attrs={'rows':3,'cols':89}),
+            'step6': forms.Textarea(attrs={'rows':3,'cols':89}),
+            'step7': forms.Textarea(attrs={'rows':3,'cols':89}),
+            'step8': forms.Textarea(attrs={'rows':3,'cols':89}),
+            'step9': forms.Textarea(attrs={'rows':3,'cols':89}),
+            'step10': forms.Textarea(attrs={'rows':3,'cols':89}),
+            'step11': forms.Textarea(attrs={'rows':3,'cols':89}),
+            'step12': forms.Textarea(attrs={'rows':3,'cols':89}),
+            'step13': forms.Textarea(attrs={'rows':3,'cols':89}),
+            'step14': forms.Textarea(attrs={'rows':3,'cols':89}),
+            'step15': forms.Textarea(attrs={'rows':3,'cols':89}),
+            'step16': forms.Textarea(attrs={'rows':3,'cols':89}),
+            'step17': forms.Textarea(attrs={'rows':3,'cols':89}),
+            'step18': forms.Textarea(attrs={'rows':3,'cols':89}),
+            'step19': forms.Textarea(attrs={'rows':3,'cols':89}),
+            'step20': forms.Textarea(attrs={'rows':3,'cols':89}),
         }
     
     #Use Django Select2

@@ -4,14 +4,268 @@
 
 {% block content %}
 
-<body>
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Submit">
-    </form>
+<style>
+    #id_name {
+        width: 100%;
+    }
 
-    {{ form.media.js }}
+    #id_prep_time, #id_cook_time, #id_total_time, #id_difficulty, #id_genres {
+        width: 75%;
+    }
+
+    #id_ingredients {
+        width: 92%;
+    }
+
+    .align-vert {
+        vertical-align: middle;
+    }
+</style>
+
+<body>
+
+    <div class="row justify-content-md-center">
+        <div class="col-10">
+            <h2> Create Recipe </h2>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-7">
+                        <h6> Name </h6>
+                        {{form.name}}
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col-4">
+                        <p>&nbsp</p>
+                        <img src={% static 'core/img_placeholder.jpg' %} onclick=""/>
+                    </div>
+                </div>
+                <div class="row">
+                    <h4> Info </h4>
+                    <div class="col-4">
+                        <h6> Prep Time (mins)</h6>
+                        {{form.prep_time}}
+                    </div>
+                    <div class="col-4">
+                        <h6> Cook Time (mins)</h6>
+                        {{form.cook_time}}
+                    </div>
+                    <div class="col-4">
+                        <h6> Total Time (mins)  </h6>
+                        {{form.total_time}}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-4">
+                        <h6> Difficulty </h6>
+                        {{form.difficulty}}
+                    </div>
+                    <div class="col-4">
+                        <h6> Genres </h6>
+                        {{form.genres}}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <h4> Ingredients </h4>
+                    {{form.ingredients}}
+                </div>
+                <br>
+                <div class="row">
+                    <h4> Steps </h4>
+                    <div class="col-sm-1">
+                        <label class="align-vert"> <h3> 1. </h3> </label>
+                    </div>
+                    <div class="col">
+                        {{form.step1}}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <label class="align-vert"> <h3> 2. </h3> </label>
+                    </div>
+                    <div class="col">
+                        {{form.step2}}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <label class="align-vert"> <h3> 3. </h3> </label>
+                    </div>
+                    <div class="col">
+                        {{form.step3}}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <label class="align-vert"> <h3> 4. </h3> </label>
+                    </div>
+                    <div class="col">
+                        {{form.step4}}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <label class="align-vert"> <h3> 5. </h3> </label>
+                    </div>
+                    <div class="col">
+                        {{form.step5}}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <label class="align-vert"> <h3> 6. </h3> </label>
+                    </div>
+                    <div class="col">
+                        {{form.step6}}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <label class="align-vert"> <h3> 7. </h3> </label>
+                    </div>
+                    <div class="col">
+                        {{form.step7}}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <label class="align-vert"> <h3> 8. </h3> </label>
+                    </div>
+                    <div class="col">
+                        {{form.step8}}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <label class="align-vert"> <h3> 9. </h3> </label>
+                    </div>
+                    <div class="col">
+                        {{form.step9}}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <label class="align-vert"> <h3> 10. </h3> </label>
+                    </div>
+                    <div class="col">
+                        {{form.step10}}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <label class="align-vert"> <h3> 11. </h3> </label>
+                    </div>
+                    <div class="col">
+                        {{form.step11}}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <label class="align-vert"> <h3> 12. </h3> </label>
+                    </div>
+                    <div class="col">
+                        {{form.step12}}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <label class="align-vert"> <h3> 13. </h3> </label>
+                    </div>
+                    <div class="col">
+                        {{form.step13}}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <label class="align-vert"> <h3> 14. </h3> </label>
+                    </div>
+                    <div class="col">
+                        {{form.step14}}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <label class="align-vert"> <h3> 15. </h3> </label>
+                    </div>
+                    <div class="col">
+                        {{form.step15}}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <label class="align-vert"> <h3> 16. </h3> </label>
+                    </div>
+                    <div class="col">
+                        {{form.step16}}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <label class="align-vert"> <h3> 17. </h3> </label>
+                    </div>
+                    <div class="col">
+                        {{form.step17}}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <label class="align-vert"> <h3> 18. </h3> </label>
+                    </div>
+                    <div class="col">
+                        {{form.step18}}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <label class="align-vert"> <h3> 19. </h3> </label>
+                    </div>
+                    <div class="col">
+                        {{form.step19}}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <label class="align-vert"> <h3> 20. </h3> </label>
+                    </div>
+                    <div class="col">
+                        {{form.step20}}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-5">
+                        <input class="btn btn-success btn-large btn-block" type="submit" value="Create Recipe">
+                    </div>
+                </div>
+            </form>
+        
+            <!-- In case I want to show/hide steps for the recipe: 
+            https://stackoverflow.com/questions/18568736/how-to-hide-element-using-twitter-bootstrap-and-show-it-using-jquery -->
+
+            {{ form.media.js }}
+        </div>
+    </div>
 
 </body>
 
