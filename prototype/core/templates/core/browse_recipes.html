@@ -82,7 +82,7 @@
 
 {% endfor %}
 
-{% for recipe in recipes %}
+{% for recipe in recipes|dictsort:"name" %}
 
 <div class="container">
     <div class="row">
