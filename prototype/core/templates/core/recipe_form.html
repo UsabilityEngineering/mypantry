@@ -4,14 +4,15 @@
 
 {% block content %}
 
-<form action="" method="POST">
-    {% csrf_token %}
-    <!-- Render form manually: https://docs.djangoproject.com/en/4.1/topics/forms/#rendering-fields-manually -->
-    <!-- https://www.youtube.com/watch?v=Pilzks6HeIg -->
-    {{ form.ingredients }}
-    <input type="submit" value="Submit">
-</form>
+<body>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Submit">
+    </form>
 
-{{ form.media.js }}
+    {{ form.media.js }}
+
+</body>
 
 {% endblock %}

@@ -68,7 +68,7 @@ class Recipe(models.Model):
     def __str__(self):
         return self.name
 
-class DiaryEntr(models.Model):
+class DiaryEntry(models.Model):
 
     recipe_name = models.CharField(max_length=200, blank=True, default='')
     date_cooked = models.DateField()

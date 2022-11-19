@@ -5,6 +5,16 @@ from django_select2 import forms as s2forms
 
 from .models import *
 
+class IngredientWidget(s2forms.ModelSelect2MultipleWidget):
+    search_fields = [
+        "name__icontains"
+    ]
+
+class GenreWidget(s2forms.ModelSelect2MultipleWidget):
+    search_fields = [
+        "name__icontains"
+    ]
+
 class RecipeModelForm(ModelForm):
     class Meta:
         model = Recipe
@@ -16,25 +26,20 @@ class RecipeModelForm(ModelForm):
             'step11', 'step12', 'step13', 'step14', 'step15',
             'step16', 'step17', 'step18', 'step19', 'step20',
         ]
+        widgets = {
+            'ingredients': IngredientWidget,
+            'genres': GenreWidget,
+            'step1': forms.Textarea(attrs={'rows':4,'cols':15})
+        }
     
     #Use Django Select2
     #https://django-select2.readthedocs.io/en/latest/
-
-    genres = forms.ModelMultipleChoiceField(
-        queryset=Genre.objects.all(),
-        widget=forms.CheckboxSelectMultiple
-    )
-
-    ingredients = forms.ModelMultipleChoiceField(
-        queryset=Ingredient.objects.all(),
-        widget=forms.CheckboxSelectMultiple
-    )
 
 class DiaryEntryForm(ModelForm):
     date_cooked = forms.DateField(initial=datetime.date.today)
 
     class Meta:
-        model = DiaryEntr
+        model = DiaryEntry
         fields = ('recipe_name', 'date_cooked', 'notes')
 
 class ReactionEntryForm(ModelForm):
