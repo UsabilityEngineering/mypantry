@@ -36,4 +36,11 @@ class DiaryEntryForm(ModelForm):
     class Meta:
         model = DiaryEntr
         fields = ('recipe_name', 'date_cooked', 'notes')
+
+class ReactionEntryForm(ModelForm):
+    date_experienced = forms.DateField(initial=datetime.date.today)
+
+    class Meta:
+        model = ReactionEntry
+        fields = ('reactiontype', 'date_experienced', 'notes')
     

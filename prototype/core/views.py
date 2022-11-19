@@ -73,7 +73,6 @@ def grocery_list(request):
 
 def food_diary(request):
     if request.method == 'POST':
-        # if 'add_manual_diary_entry' in request.POST:
         diary_entry = DiaryEntryForm(request.POST)
         diary_entry.save()
         return redirect("/food_diary")
@@ -89,7 +88,22 @@ def food_diary(request):
     return render(request, 'core/food_diary.html', context)
 
 def reaction_reporter(request):
-    return render(request, 'core/reaction_reporter.html', {"food_diary_active": True})
+
+    if request.method == 'POST':
+        reaction_entry = ReactionEntryForm(request.POST)
+        reaction_entry.save()
+        return redirect("/reaction_reporter")
+    
+    reaction_entry = ReactionEntryForm()
+
+    context = {
+        "food_diary_active": True,
+        "reaction_entry_form": reaction_entry,
+        "reaction_reports": ReactionEntry.objects.all()
+    }
+
+
+    return render(request, 'core/reaction_reporter.html', context)
 
 def create_recipe(request):
     form = RecipeModelForm()

@@ -79,3 +79,17 @@ class DiaryEntr(models.Model):
 
     def __str__(self):
         return str(self.recipe_name)
+
+class ReactionType(models.Model):
+    reaction = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.reaction
+
+class ReactionEntry(models.Model):
+    reactiontype = models.ForeignKey(ReactionType, on_delete=models.CASCADE, null=True)
+    date_experienced = models.DateField()
+    notes = models.TextField(blank=True)
+
+    def __str__(self):
+        return str(self.reactiontype) + ' on ' + str(self.date_experienced)
