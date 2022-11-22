@@ -9,6 +9,16 @@ def home(request):
     return render(request, 'core/home.html', {"home_active": True})
 
 def pantry(request):
+    
+    ajax_search = request.GET.get('search')
+    if ajax_search != None:
+        return_obj = ""
+        ingredients = Ingredient.objects.filter(name__contains=ajax_search)
+        for i in ingredients:
+            return_obj += str(i.id) + " "
+        return HttpResponse(return_obj)
+
+
     ingredients = Ingredient.objects.all()
     categories = Category.objects.all().exclude(name="Default").order_by('name')
 
@@ -24,6 +34,14 @@ def pantry(request):
     return render(request, 'core/pantry.html', context)
 
 def browse_recipes(request):
+    ajax_search = request.GET.get('search')
+    if ajax_search != None:
+        return_obj = ""
+        recipes = Recipe.objects.filter(name__contains=ajax_search)
+        for r in recipes:
+            return_obj += str(r.id) + " "
+        return HttpResponse(return_obj)
+
     recipes = Recipe.objects.all()
 
     context = {

@@ -7,7 +7,7 @@
     <div class="row justify-content-md-center">
       <div class="col-2"></div>
       <div class="col-5">
-        <input class="form-control me-2" type="search" placeholder="search for recipe" aria-label="Search">
+        <input class="form-control me-2" type="search" placeholder="search for recipe" aria-label="Search" id="recipeSearch" oninput="recipeSearch()">
       </div>
       <div class="col-2"></div>
     </div>
@@ -84,7 +84,7 @@
 
 {% for recipe in recipes|dictsort:"name" %}
 
-<div class="container">
+<div class="container recipeBlock" id="{{recipe.id}}">
     <div class="row">
         <div class="col-3">
             <img src={% static 'core/img_placeholder.jpg' %} onclick=""/>
@@ -107,5 +107,28 @@
 </div>
 
 {% endfor %}
+
+<script>
+  function recipeSearch() {
+    var recipes = document.getElementsByClassName("recipeBlock");
+    var search_text = document.getElementById('recipeSearch').value;
+    for(let i = 0; i < recipes.length; i++) {
+      recipes[i].style.display = "none";
+    }
+    
+    xhttpObj = new XMLHttpRequest();
+    xhttpObj.onload = function() {
+      var recipes = this.responseText.split(" ");
+      console.log(recipes);
+      for(let i = 0; i < recipes.length; i++) {
+        try {
+          document.getElementById(String(recipes[i])).style.display = "";
+        } catch{}
+      }
+    };
+    xhttpObj.open("GET", "?search=" + search_text);
+    xhttpObj.send();
+  }
+</script>
 
 {% endblock content %}
