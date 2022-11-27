@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     #3rd Party Plugins
     'django_select2',
+    'django_filters',
     
 
 ]

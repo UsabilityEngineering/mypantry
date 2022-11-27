@@ -97,8 +97,8 @@
             <p>Difficulty: {{recipe.difficulty}} </p>
         </div>
         <div class="col-2">
-            <button type="button" class="btn btn-secondary btn-light border border-secondary mb-3" onclick="addGrocList(this)">Add Recipe Ingredients to Grocery List</span>
-            <button type="button" class="btn btn-secondary btn-light border border-secondary" onclick="importRepFoodDiary(this)">Import Recipe to Food Diary</button>
+            <button type="button" class="btn btn-secondary btn-light border border-secondary mb-3 planner_select" data-pk="{{recipe.id}}" onclick="addGrocList(this)">{% if recipe.planner %} Remove Recipe from Grocery List {% else %} Add Recipe Ingredients to Grocery List {% endif %}</span>
+            <button type="button" class="btn btn-secondary btn-light border border-secondary diary_select" data-pk="{{recipe.id}}" onclick="importRepFoodDiary(this)">Import Recipe to Food Diary</button>
         </div>
         <div class="col-1">
             <img src={% static 'core/icons/heart.svg' %} onclick="saveRecipe(this)"/>
@@ -110,7 +110,7 @@
 
 <script>
   function recipeSearch() {
-    var recipes = document.getElementsByClassName("recipeBlock");
+    var recipes = document.getElementsByClassName("recipeBlock");innerHTML
     var search_text = document.getElementById('recipeSearch').value;
     for(let i = 0; i < recipes.length; i++) {
       recipes[i].style.display = "none";
@@ -129,6 +129,11 @@
     xhttpObj.open("GET", "?search=" + search_text);
     xhttpObj.send();
   }
+
+  $('.planner_select').click(function(){
+    var pk = $(this).attr("data-pk");
+    $.get("/update_planner/" + pk)
+  });
 </script>
 
 {% endblock content %}

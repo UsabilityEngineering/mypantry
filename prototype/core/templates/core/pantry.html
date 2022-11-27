@@ -45,7 +45,6 @@
   $('.ingredient_select').click(function(){
     var pk = $(this).attr("data-pk");
     $.get("/update_ingredient/" + pk, function(r){
-      console.log(r);
       $('.selected_ingredients').html('').load("{% url 'update_selected' %}");
     })
   });

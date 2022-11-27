@@ -6,13 +6,11 @@
         <div class="col-10">
             <br>
             <br>
-            <div class="lead">based on recipes you imported and ingredients in your pantry, you are missing the following ingredients:</div>
+            <div class="lead">Based on recipes you imported and ingredients in your pantry, you are missing the following ingredients:</div>
             <br>
-            {% for ingredient in missing %}
-            <span class="badge rounded-pill text-bg-info">{{ingredient.name}}</span>
-            {% endfor %}
-            <span class="badge rounded-pill text-bg-info">Pork loin</span>
-            <span class="badge rounded-pill text-bg-info">Eggs</span>
+            <div class="planner_ingredients">
+                {% include 'core/planner_content_ingredients.html' %}
+            </div>
         </div>
     </div>
 </div>
@@ -23,44 +21,8 @@
 <h3>Recipes Imported Into Grocery List:</h3>
 <br>
 <div class="container">
-    <div class="row">
-        {% for recipe in planner %}
-        <div class="col-6">
-            <div class="row">
-                <div class="col-8">
-                    <h4>{{recipe.name}}</h4>
-                    <p>Time to cook: {{recipe.time}} </p>
-                    <p>Genres: {% for genre in recipe.genre_set.all %} {{genre.name}}, {% endfor %} </p>
-                    <p>Difficulty: {{recipe.difficulty}} </p>
-                </div>
-                <div class="col-4">
-                    <button type="button" class="btn btn-secondary btn-light border border-secondary mb-3" onclick="#">Remove From Grocery List</span>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-        <div class="col-6">
-            <div class="row">
-                <div class="col-8">
-                    <h4>Beef Wellington</h4>
-                    <p>Main Ingredients: beef tenderloin, mushroom</p>
-                </div>
-                <div class="col-4">
-                    <button type="button" class="btn btn-secondary btn-light border border-secondary mb-3" onclick="#">Remove From Grocery List</span>
-                </div>
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="row">
-                <div class="col-8">
-                    <h4>Breaded Porkchops</h4>
-                    <p>Main Ingredients: pork loin</p>
-                </div>
-                <div class="col-4">
-                    <button type="button" class="btn btn-secondary btn-light border border-secondary mb-3" onclick="#">Remove From Grocery List</span>
-                </div>
-            </div>
-        </div>
+    <div class="row planner_recipes">
+        {% include 'core/planner_content_recipes.html' %}
     </div>
 </div>
 <br>
@@ -69,16 +31,9 @@
 <div class="container">
     <div class="row">
         <div class="col-7">
-            <span class="badge rounded-pill text-bg-secondary">Mushroom</span>
-            <span class="badge rounded-pill text-bg-secondary">Shallot</span>
-            <span class="badge rounded-pill text-bg-secondary">Garlic</span>
-            <span class="badge rounded-pill text-bg-secondary">Thyme</span>
-            <span class="badge rounded-pill text-bg-secondary">Butter</span>
-            <span class="badge rounded-pill text-bg-secondary">Olive Oil</span>
-            <span class="badge rounded-pill text-bg-secondary">Prosciutto</span>
-            <span class="badge rounded-pill text-bg-secondary">Dijion Mustard</span>
-            <span class="badge rounded-pill text-bg-secondary">Flour</span>
-            <span class="badge rounded-pill text-bg-secondary">Puff Pastery</span>
+            {% for ingredient in ingredients %}
+            <span class="badge rounded-pill text-bg-secondary">{{ingredient.name}}</span>
+            {% endfor %}
         </div>
     </div>
 </div>

@@ -24,7 +24,7 @@ function saveRecipe(recipe) {
 
 function addGrocList(recipe) {
     if(recipe.innerText == "Add Recipe Ingredients to Grocery List") {
-        recipe.innerHTML = "Remove Recipe from Grocery List";
+        recipe.innerText = "Remove Recipe from Grocery List";
     }
     else {
         recipe.innerText = "Add Recipe Ingredients to Grocery List";
@@ -33,7 +33,7 @@ function addGrocList(recipe) {
 
 function importRepFoodDiary(recipe) {
     if(recipe.innerText  == "Import Recipe to Food Diary") {
-        recipe.innerText  = "Remove Recipe from Grocery List";
+        recipe.innerText  = "Remove Recipe from Food Diary";
     }
     else {
         recipe.innerText  = "Import Recipe to Food Diary";

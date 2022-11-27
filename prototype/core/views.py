@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 import uuid, json
 
-from .forms import *
 from .models import *
+from .forms import *
+from .filters import *
 
 def home(request):
     return render(request, 'core/home.html', {"home_active": True})
@@ -44,6 +45,9 @@ def browse_recipes(request):
 
     recipes = Recipe.objects.all()
 
+    filter = RecipeFilter(request.GET, queryset=recipes)
+    recipes = filter.qs
+
     context = {
         'recipes': recipes,
 
@@ -75,15 +79,17 @@ def saved_and_custom_recipes(request):
 
 def grocery_list(request):
     planner = Recipe.objects.all().filter(planner=True)
+    ingredients = Ingredient.objects.all().filter(selected=True)
     missing = []
     for recipe in planner:
-        for ingredient in recipe.ingredients:
-            if ingredient.selected == false:
+        for ingredient in recipe.ingredients.all():
+            if ingredient.selected == False:
                 missing.append(ingredient)
 
     context = {
         'planner': planner,
-        'missing': missing,
+        'missing': set(missing),
+        'ingredients': ingredients,
 
         "grocery_list_active": True,
     }
@@ -153,13 +159,42 @@ def update_ingredient(request, pk):
     ingredient = Ingredient.objects.get(id=pk)
     ingredient.selected = ingredient.selected^True
     ingredient.save()
-    response_data={'val':ingredient.selected^True}
+    response_data={'val': ingredient.selected^True}
     return HttpResponse(json.dumps(response_data), content_type="application/json")
 
-def update_selected(request):
+def update_selected_ingredients(request):
     selected = Ingredient.objects.all().filter(selected=True).order_by('name')
 
     context = {
         'selected': selected,
     }
     return render(request, 'core/selected_ingredients.html', context)
+
+def update_planner(request, pk):
+    recipe = Recipe.objects.get(id=pk)
+    recipe.planner = recipe.planner^True
+    recipe.save()
+    response_data={'val': recipe.planner^True}
+    return HttpResponse(json.dumps(response_data), content_type="application/json")
+
+def update_planner_content_recipes(request):
+    planner = Recipe.objects.all().filter(planner=True)
+
+    context = {
+        'planner': planner,
+    }
+    return render(request, 'core/planner_content_recipes.html', context)
+
+def update_planner_content_ingredients(request):
+    planner = Recipe.objects.all().filter(planner=True)
+    ingredients = Ingredient.objects.all().filter(selected=True)
+    missing = []
+    for recipe in planner:
+        for ingredient in recipe.ingredients.all():
+            if ingredient.selected == False:
+                missing.append(ingredient)
+
+    context = {
+        'missing': set(missing),
+    }
+    return render(request, 'core/planner_content_ingredients.html', context)
