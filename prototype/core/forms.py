@@ -61,6 +61,9 @@ class DiaryEntryForm(ModelForm):
     class Meta:
         model = DiaryEntry
         fields = ('recipe_name', 'date_cooked', 'notes')
+        widgets = {
+            'notes': forms.Textarea(attrs={'rows':8,'cols':25})
+        }
 
 class ReactionEntryForm(ModelForm):
     date_experienced = forms.DateField(initial=datetime.date.today)

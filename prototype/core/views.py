@@ -96,18 +96,21 @@ def grocery_list(request):
     return render(request, 'core/grocery_list.html', context)
 
 def food_diary(request):
+    recipes = Recipe.objects.all().filter(diary=True)
+
     if request.method == 'POST':
         diary_entry = DiaryEntryForm(request.POST)
         diary_entry.save()
         return redirect("/food_diary")
 
-    
     diary_entry_form = DiaryEntryForm()
 
     context = {
-        "food_diary_active": True,
+        "recipes": recipes,
         "diary_entry_form": diary_entry_form,
-        "diary_entries": DiaryEntry.objects.all()
+        "diary_entries": DiaryEntry.objects.all(),
+
+        "food_diary_active": True,
     }
     return render(request, 'core/food_diary.html', context)
 
@@ -220,3 +223,11 @@ def update_favorite_content(request):
         'saved': saved
     }
     return render(request, 'core/saved_recipes.html', context)
+
+def update_diary_content(request):
+    recipes = Recipe.objects.all().filter(diary=True)
+
+    context = {
+        'recipes': recipes,
+    }
+    return render(request, 'core/diary_content_recipes.html', context)

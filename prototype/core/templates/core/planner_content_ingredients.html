@@ -1,3 +1,11 @@
-{% for ingredient in missing|dictsort:'name' %}
-    <span class="badge rounded-pill text-bg-info">{{ingredient.name}}</span>
-{% endfor %}
+{% if not missing %}
+    <div class="container">
+        <div class="row imported_recipe_diary text-center text-bg-light border bobrder-secondary fs-5 rounded-pill">
+            <span> No missing ingredients. </span>
+        </div>
+    </div>
+{% else %}
+    {% for ingredient in missing|dictsort:'name' %}
+        <span class="badge rounded-pill text-bg-info">{{ingredient.name}}</span>
+    {% endfor %}
+{% endif %}

@@ -18,4 +18,5 @@ urlpatterns = [
     path('update_diary/<int:pk>', views.update_diary, name='update_diary'),
     path('update_favorite/<int:pk>', views.update_favorite, name='update_favorite'),
     path('update_favorite_content', views.update_favorite_content, name='update_favorite_content'),
+    path('update_diary_content', views.update_diary_content, name='update_diary_content'),
 ]
