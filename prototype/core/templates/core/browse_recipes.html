@@ -12,6 +12,7 @@
       <div class="col-2"></div>
     </div>
     <br>
+    <form method="get">
     <div class="row justify-content-md-center">
         <div class="col-6">
             <span class="dropdown">
@@ -37,7 +38,21 @@
                   <li><a class="dropdown-item" href="#">Low</a></li>
                 </ul>
             </span>
-            <span class="dropdown">
+            <br>
+            <div class="row">
+              <div class="col-4">
+                <label for="{{filter.form.difficulty.id_for_label}}">Difficulty:</label>
+                  {{filter.form.difficulty}}
+              </div>
+              <div class="col-6">
+                <label for="{{filter.form.ingredient.id_for_label}}">Filter by Ingredients:</label>
+                  {{filter.form.ingredient}}
+              </div>
+              <div class="col-2">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+            <!--<span class="dropdown">
                 <button class="btn btn-light dropdown-toggle border border-secondary recipe_filter" type="button" data-toggle='dropdown' data-bs-toggle="dropdown" aria-expanded="false">
                   Difficulty: Any
                 </button>
@@ -47,9 +62,9 @@
                   <li><a class="dropdown-item" href="#">Medium</a></li>
                   <li><a class="dropdown-item" href="#">Hard</a></li>
                 </ul>
-            </span>
+            </span>-->
     </div>
-    <div class="row justify-content-md-center">
+      <!--<div class="row justify-content-md-center">
         <div class="col-6">
             <span class="dropdown">
                 <button class="btn btn-light dropdown-toggle border border-secondary recipe_filter_bot" type="button" data-toggle='dropdown' data-bs-toggle="dropdown" aria-expanded="false">
@@ -61,11 +76,12 @@
                 </ul>
             </span>
         </div>
-      </div>
+      </div> -->
     </div>
+  </form>
 </div>
 
-<span class="dropdown">
+<!--<span class="dropdown">
   <button class="btn btn-light dropdown-toggle border border-secondary recipe_filter_bot mb-3" type="button" data-toggle='dropdown' data-bs-toggle="dropdown" aria-expanded="false">
     Sort by: Alphabetical
   </button>
@@ -74,7 +90,7 @@
     <li><a class="dropdown-item" href="#">Time to Cook</a></li>
     <li><a class="dropdown-item" href="#">Health Score</a></li>
   </ul>
-</span>
+</span>-->
 
 {% for recipe in recipes %}
 

@@ -50,6 +50,7 @@ def browse_recipes(request):
 
     context = {
         'recipes': recipes,
+        'filter': filter,
 
         "browse_recipes_active": True,
     }
