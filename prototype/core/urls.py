@@ -14,5 +14,8 @@ urlpatterns = [
     path('update_selected', views.update_selected_ingredients, name='update_selected'),
     path('update_planner/<int:pk>', views.update_planner, name='update_planner'),
     path('update_planner_content_recipes', views.update_planner_content_recipes, name='update_planner_recipes'),
-    path('update_planner_content_ingredients', views.update_planner_content_ingredients, name='update_planner_ingredients')
+    path('update_planner_content_ingredients', views.update_planner_content_ingredients, name='update_planner_ingredients'),
+    path('update_diary/<int:pk>', views.update_diary, name='update_diary'),
+    path('update_favorite/<int:pk>', views.update_favorite, name='update_favorite'),
+    path('update_favorite_content', views.update_favorite_content, name='update_favorite_content'),
 ]

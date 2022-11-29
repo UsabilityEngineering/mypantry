@@ -43,6 +43,7 @@ class Recipe(models.Model):
     favorited = models.BooleanField(default=False)
     planner = models.BooleanField(default=False)
     custom = models.BooleanField(default=False)
+    diary = models.BooleanField(default=False)
     step1 = models.TextField(default="", blank=False)
     step2 = models.TextField(default="", blank=True)
     step3 = models.TextField(default="", blank=True)

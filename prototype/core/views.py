@@ -198,3 +198,25 @@ def update_planner_content_ingredients(request):
         'missing': set(missing),
     }
     return render(request, 'core/planner_content_ingredients.html', context)
+
+def update_diary(request, pk):
+    recipe = Recipe.objects.get(id=pk)
+    recipe.diary = recipe.diary^True
+    recipe.save()
+    response_data={'val': recipe.diary^True}
+    return HttpResponse(json.dumps(response_data), content_type="application/json")
+
+def update_favorite(request, pk):
+    recipe = Recipe.objects.get(id=pk)
+    recipe.favorited = recipe.favorited^True
+    recipe.save()
+    response_data={'val': recipe.favorited^True}
+    return HttpResponse(json.dumps(response_data), content_type="application/json")
+
+def update_favorite_content(request):
+    saved = Recipe.objects.all().filter(favorited=True)
+
+    context = {
+        'saved': saved
+    }
+    return render(request, 'core/saved_recipes.html', context)
