@@ -126,7 +126,7 @@
 
 <script>
   function recipeSearch() {
-    var recipes = document.getElementsByClassName("recipeBlock");innerHTML
+    var recipes = document.getElementsByClassName("recipeBlock");
     var search_text = document.getElementById('recipeSearch').value;
     for(let i = 0; i < recipes.length; i++) {
       recipes[i].style.display = "none";
@@ -135,7 +135,6 @@
     xhttpObj = new XMLHttpRequest();
     xhttpObj.onload = function() {
       var recipes = this.responseText.split(" ");
-      console.log(recipes);
       for(let i = 0; i < recipes.length; i++) {
         try {
           document.getElementById(String(recipes[i])).style.display = "";
