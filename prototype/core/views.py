@@ -141,8 +141,8 @@ def create_recipe(request):
         if form.is_valid():
             recipe = form.save(commit=False)
             recipe.uuid = uuid.uuid4()
-            recipe.author = "MyPantry"
-            #recipe.custom = True
+            recipe.author = "Me!"
+            recipe.custom = True
             recipe.save()
             for genre in form.cleaned_data.get('genres'):
                 recipe.genres.add(genre)
