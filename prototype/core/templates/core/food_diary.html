@@ -1,0 +1,113 @@
+{% extends "core/base.html" %}
+{%block content %}
+{% load static %}
+<h1>Imported Recipes:</h1>
+
+<!-- manual entry pop up form -->
+<div class="modal fade" id="addManualDiaryEntry" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">Add a Manual Diary Entry</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form method="POST">
+      <div class="modal-body">
+          {% csrf_token %}
+          <span>Recipe Name: </span>
+          {{ diary_entry_form.recipe_name }}
+          <br>
+          <br>
+          <span>Date Cooked: </span>
+          {{ diary_entry_form.date_cooked}}
+          <br>
+          <br>
+          <span>Notes:</span>
+          <br>
+          <div class="container">
+            <div class="row">
+              <div class="col-2"></div>
+              <div class="col-10">
+                {{ diary_entry_form.notes }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button submit" class="btn btn-primary" name = "add_manual_diary_entry">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- entry from imported recipe pop up form -->
+<div class="modal fade" id="createEntryFromImport" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">Create Entry For Imported Recipe</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form method="POST">
+        <div class="modal-body">
+            {% csrf_token %}
+            <span>Recipe Name: </span>
+            <span id="imported_recipe_name">{{ diary_entry_form.recipe_name }}</span>
+            <br>
+            <br>
+            <span>Date Cooked: </span>
+            {{ diary_entry_form.date_cooked}}
+            <br>
+            <br>
+            <span>Notes:</span>
+            <br>
+            <div class="container">
+              <div class="row">
+                <div class="col-2"></div>
+                <div class="col-10">
+                  {{ diary_entry_form.notes }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button submit" class="btn btn-primary" name = "add_imported_diary_entry">Submit</button>
+          </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+<div class="diary_recipes">
+  {% include 'core/diary_content_recipes.html' %}
+</div>
+
+<h1>My Food Diary</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <button type="button" class="btn btn-light btn-lg border border-secondary mb-4" data-bs-toggle="modal" data-bs-target="#addManualDiaryEntry">Add Manual Diary Entry</button>
+        </div>
+        <div class="col-6 text-end">
+            <a href="/reaction_reporter" type="button" class="btn btn-primary btn-lg border border-secondary">Reaction Reporter</a>
+        </div>
+    </div>
+
+    {% for e in diary_entries|dictsortreversed:"date_cooked" %}
+    <h3 class="mt-2">{{e.date_cooked}}</h3>
+    <div class="row">
+        <div class="col-3 text-end">
+            <img src={% static 'core/img_placeholder.jpg' %} onclick=""/>
+        </div>
+        <div class="col-9">
+            <h2>{{e.recipe_name}}</h2>
+            <p>Notes: {{e.notes}}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

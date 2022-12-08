@@ -1,0 +1,32 @@
+{% if not planner%}
+    <div class="container">
+        <div class="row imported_recipe_diary text-center text-bg-light border bobrder-secondary fs-5 rounded-pill">
+            <span> You do not have any imported recipes. </span>
+        </div>
+    </div>
+{% else %}
+    {% for recipe in planner|dictsort:'name' %}
+        <div class="col-6">
+            <div class="row">
+                <div class="col-8">
+                    <h4>{{recipe.name}}</h4>
+                    <p>Genres: {% for genre in recipe.genres.all %} <span class="badge text-decoration-none bg-secondary"> {{genre}} </span> {% endfor %} </p>
+                </div>
+                <div class="col-4">
+                    <button type="button" class="btn btn-secondary btn-light border border-secondary mb-3 planner_remove" data-pk="{{recipe.id}}">Remove From Grocery List</span>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}
+
+<!-- Don't ask me why this script only works when it's here -->
+<script>
+$('.planner_remove').click(function(){
+    var pk = $(this).attr("data-pk");
+    $.get("/update_planner/" + pk, function(r){
+        $('.planner_recipes').html('').load("{% url 'update_planner_recipes' %}");
+        $('.planner_ingredients').html('').load("{% url 'update_planner_ingredients' %}");
+    })
+});
+</script>

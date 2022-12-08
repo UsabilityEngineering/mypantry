@@ -1,0 +1,54 @@
+{% extends "core/base.html" %}
+{% block content %}
+{% load static %}
+
+<h2>Custom Recipes</h2>
+<div class="row justify-content-md-center">
+    <div class="col-3 d-grid">
+        <a class="btn btn-light btn-lg border border-secondary mb-3" href="{% url 'create_recipe' %}">Add a new custom recipe</a>
+    </div>
+</div>
+{% for recipe in custom %}
+
+{% include 'core/recipe_modal.html' %}
+
+{% endfor %}
+
+{% for recipe in custom|dictsort:'name' %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <img src={% static 'core/img_placeholder.jpg' %} onclick=""/>
+        </div>
+        <div class="col-6 recipe_card" data-bs-toggle="modal" data-bs-target="#id_{{recipe.uuid}}_modal">
+            <h2>{{recipe.name}}</h2>
+            <p>Uploaded by: {{recipe.author}} </p>
+            <p>Total Time: {{recipe.total_time}} mins </p>
+            <p>Genres: {% for genre in recipe.genres.all %} <span class="badge text-decoration-none bg-secondary"> {{genre}} </span> {% endfor %} </p>
+            <p>Difficulty: {{recipe.difficulty}} </p>
+        </div>
+        <div class="col-2">
+            <button type="button" class="btn btn-secondary btn-light border border-secondary mb-3 planner_select" data-pk="{{recipe.id}}" onclick="addGrocList(this)">{% if recipe.planner %} Remove Recipe from Grocery List {% else %} Add Recipe Ingredients to Grocery List {% endif %}</button>
+            <button type="button" class="btn btn-secondary btn-light border border-secondary diary_select" data-pk="{{recipe.id}}" onclick="importRepFoodDiary(this)">{% if recipe.diary %} Remove Recipe from Food Diary {% else %} Import Recipe to Food Diary {% endif %}</button>
+        </div>
+        <div class="col-1">
+            <img class="favorite_select" data-pk="{{recipe.id}}" src={% if recipe.favorited %} {% static 'core/icons/heart-fill.svg' %} {% else %} {% static 'core/icons/heart.svg' %} {% endif %} onclick="saveRecipe(this)"/>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+
+<h2>Saved Recipes</h2>
+{% for recipe in saved %}
+
+{% include 'core/recipe_modal.html' %}
+
+{% endfor%}
+
+<div class="saved_recipes">
+    {% include 'core/saved_recipes.html' %}
+</div>
+
+{% endblock content %}

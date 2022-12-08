@@ -1,0 +1,74 @@
+{% extends "core/base.html" %}
+{%block content %}
+<h1>My Food Diary: Reaction Reporter</h1>
+<br>
+<div class="row">
+    <div class="col-3">
+        <h2>Reported Reactions</h2>
+    </div>
+    <div class="col-4">
+        <button type="button" class="btn btn-light btn-lg border border-secondary mb-4" data-bs-toggle="modal" data-bs-target="#addNewReactionReport">Add New Report</button>
+    </div>
+</div>
+
+<div class="container">
+    
+    {% for r in reaction_reports|dictsortreversed:"date_experienced" %}
+    <div class="row text-start text-bg-light border border-secondary fs-5 rounded-pill mt-2">
+        <div class="row">
+            <div class="col-6 mt-2 mb-2">
+                {{ r.reactiontype }}
+            </div>
+            <div class="col-3 mt-2 mb-2">
+                {{ r.date_experienced }}
+            </div>
+            <div class="col-3 text-end">
+                <button type="button" class="btn btn-light btn-lg border border-secondary mt-1 mb-1">View Report</button>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
+
+<!-- add new report pop up form -->
+<div class="modal fade" id="addNewReactionReport" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5">Report a new reaction</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form method="POST">
+            <div class="modal-body">
+                {% csrf_token %}
+                <span>Reaction Type: </span>
+                {{  reaction_entry_form.reactiontype }}</span>
+                <br>
+                <br>
+                <span>Date Experienced: </span>
+                {{ reaction_entry_form.date_experienced }}
+                <br>
+                <br>
+                <span>Notes on experience:</span>
+                <br>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-10">
+                      {{ reaction_entry_form.notes }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button submit" class="btn btn-primary" name = "add_imported_diary_entry">Submit</button>
+              </div>
+            </form>
+      </div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,55 @@
+{% extends "core/base.html" %}
+
+{%block content %}
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="jumbotron">
+            <h1 class="display-4">Welcome to MyPantry!</h1>
+            <p class="lead">MyPantry is a webapp to help users find and plan recipes based on ingredients they already have. </p>
+            <hr class="my-4">
+            <p>Get started here by letting us know which ingredients are already in your pantry</p>
+            <p class="lead">
+              <a class="btn btn-primary btn-lg" href="/pantry" role="button">Go to Pantry</a>
+            </p>
+          </div>
+    </div>
+    <div class="carousel-item">
+        <div class="jumbotron">
+            <h1 class="display-4">Manage your pantry</h1>
+            <p class="lead">Use Browse Recipes to narrow your search</p>
+            <hr class="my-4">
+            <p>The browse recipe tab will help you find new and intersting recipes. Use the "Show Recipe" filter to view either all recipes in our database, or narrow your search based on ingredients you have set in "Pantry".</p>
+            <p class="lead">
+              <a class="btn btn-primary btn-lg" href="/browse_recipes" role="button">Go to Browse Recipes</a>
+            </p>
+          </div>
+    </div>
+    <div class="carousel-item">
+        <div class="jumbotron">
+            <h1 class="display-4">Experiencing a reaction?</h1>
+            <!-- <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p> -->
+            <hr class="my-4">
+            <p>Use MyPantry's Food Diary feature to keep track of everything you've eaten. Foods already in the MyPantry system can be imported with ease using the "Browse Recipes" tab.</p>
+            <p>Head to "Reaction Reporter" to report reactions you've experienced. MyPantry will generate a reaction report and try to help you narrow down the root cause.</p>
+            <p class="lead">
+              <a class="btn btn-primary btn-lg" href="/food_diary" role="button">Go to Food Diary</a>
+            </p>
+          </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+{% endblock content %}

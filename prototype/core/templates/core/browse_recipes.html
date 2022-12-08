@@ -1,0 +1,172 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{%block content %}
+<div class="container text-center">
+    <br>
+    <div class="row justify-content-md-center">
+      <div class="col-2"></div>
+      <div class="col-5">
+        <input class="form-control me-2" type="search" placeholder="search for recipe" aria-label="Search" id="recipeSearch" oninput="recipeSearch()">
+      </div>
+      <div class="col-2"></div>
+    </div>
+    <br>
+    <form method="get">
+    <div class="row justify-content-md-center">
+        <div class="col-6">
+            <span class="dropdown">
+                <button class="btn btn-light dropdown-toggle border border-secondary" type="button" data-toggle='dropdown' data-bs-toggle="dropdown" aria-expanded="false">
+                  Time to Cook: Any
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Any</a></li>
+                  <li><a class="dropdown-item" href="#"> <15 min </a></li>
+                  <li><a class="dropdown-item" href="#"> <30 min </a></li>
+                  <li><a class="dropdown-item" href="#"> <1 hr </a></li>
+                  <li><a class="dropdown-item" href="#"> <2 hr </a></li>
+                </ul>
+            </span>
+            <span class="dropdown">
+                <button class="btn btn-light dropdown-toggle border border-secondary recipe_filter" type="button" data-toggle='dropdown' data-bs-toggle="dropdown" aria-expanded="false">
+                  Health Score: Any
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Any</a></li>
+                  <li><a class="dropdown-item" href="#">Excellent</a></li>
+                  <li><a class="dropdown-item" href="#">Medium</a></li>
+                  <li><a class="dropdown-item" href="#">Low</a></li>
+                </ul>
+            </span>
+            <br>
+            <div class="row">
+              <div class="col-4">
+                <label for="{{filter.form.difficulty.id_for_label}}">Difficulty:</label>
+                  {{filter.form.difficulty}}
+              </div>
+              <div class="col-6">
+                <label for="{{filter.form.ingredient.id_for_label}}">Filter by Ingredients in Pantry:</label>
+                  {{filter.form.ingredient}}
+              </div>
+              <div class="col-2">
+                <button type="submit" class="btn btn-primary">Apply</button>
+              </div>
+            </div>
+            <!--<span class="dropdown">
+                <button class="btn btn-light dropdown-toggle border border-secondary recipe_filter" type="button" data-toggle='dropdown' data-bs-toggle="dropdown" aria-expanded="false">
+                  Difficulty: Any
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Any</a></li>
+                  <li><a class="dropdown-item" href="#">Easy</a></li>
+                  <li><a class="dropdown-item" href="#">Medium</a></li>
+                  <li><a class="dropdown-item" href="#">Hard</a></li>
+                </ul>
+            </span>-->
+    </div>
+      <!--<div class="row justify-content-md-center">
+        <div class="col-6">
+            <span class="dropdown">
+                <button class="btn btn-light dropdown-toggle border border-secondary recipe_filter_bot" type="button" data-toggle='dropdown' data-bs-toggle="dropdown" aria-expanded="false">
+                  Show Recipes: show all avaliable recipes
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">show all avaliable recipes</a></li>
+                  <li><a class="dropdown-item" href="#">with only ingredients in my Pantry</a></li>
+                </ul>
+            </span>
+        </div>
+      </div> -->
+    </div>
+  </form>
+</div>
+
+<!--<span class="dropdown">
+  <button class="btn btn-light dropdown-toggle border border-secondary recipe_filter_bot mb-3" type="button" data-toggle='dropdown' data-bs-toggle="dropdown" aria-expanded="false">
+    Sort by: Alphabetical
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Alphabetical</a></li>
+    <li><a class="dropdown-item" href="#">Time to Cook</a></li>
+    <li><a class="dropdown-item" href="#">Health Score</a></li>
+  </ul>
+</span>-->
+
+<br>
+<br>
+
+{% for recipe in recipes %}
+
+{% include 'core/recipe_modal.html' %}
+
+{% endfor %}
+
+{% for recipe in recipes|dictsort:"name" %}
+
+<div class="container recipeBlock" id="{{recipe.id}}">
+    <div class="row">
+        <div class="col-3">
+            <img src={% static 'core/img_placeholder.jpg' %} onclick=""/>
+        </div>
+        <div class="col-6 recipe_card" data-bs-toggle="modal" data-bs-target="#id_{{recipe.uuid}}_modal">
+            <h2>{{recipe.name}}</h2>
+            <p>Uploaded by: {{recipe.author}} </p>
+            <p>Total Time: {{recipe.total_time}} mins </p>
+            <p>Genres: {% for genre in recipe.genres.all %} <span class="badge text-decoration-none bg-secondary"> {{genre}} </span> {% endfor %} </p>
+            <p>Difficulty: {{recipe.difficulty}} </p>
+        </div>
+        <div class="col-2">
+            <button type="button" class="btn btn-secondary btn-light border border-secondary mb-3 planner_select" data-pk="{{recipe.id}}" onclick="addGrocList(this)">{% if recipe.planner %} Remove Recipe from Grocery List {% else %} Add Recipe Ingredients to Grocery List {% endif %}</button>
+            <button type="button" class="btn btn-secondary btn-light border border-secondary diary_select" data-pk="{{recipe.id}}" onclick="importRepFoodDiary(this)">{% if recipe.diary %} Remove Recipe from Food Diary {% else %} Import Recipe to Food Diary {% endif %}</button>
+        </div>
+        <div class="col-1">
+            <img class="favorite_select" data-pk="{{recipe.id}}" src={% if recipe.favorited %} {% static 'core/icons/heart-fill.svg' %} {% else %} {% static 'core/icons/heart.svg' %} {% endif %} onclick="saveRecipe(this)"/>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+
+<script>
+  function recipeSearch() {
+    var recipes = document.getElementsByClassName("recipeBlock");
+    var search_text = document.getElementById('recipeSearch').value;
+    for(let i = 0; i < recipes.length; i++) {
+      recipes[i].style.display = "none";
+    }
+    
+    xhttpObj = new XMLHttpRequest();
+    xhttpObj.onload = function() {
+      var recipes = this.responseText.split(" ");
+      for(let i = 0; i < recipes.length; i++) {
+        try {
+          document.getElementById(String(recipes[i])).style.display = "";
+        } catch{}
+      }
+    };
+    xhttpObj.open("GET", "?search=" + search_text);
+    xhttpObj.send();
+  }
+
+</script>
+
+<script>
+
+
+  $('.planner_select').click(function(){
+    var pk = $(this).attr("data-pk");
+    $.get("/update_planner/" + pk)
+  });
+
+$('.diary_select').click(function(){
+    var pk = $(this).attr("data-pk");
+    $.get("/update_diary/" + pk)
+  });
+
+$('.favorite_select').click(function(){
+    var pk = $(this).attr("data-pk");
+    $.get("/update_favorite/" + pk)
+  });
+</script>
+
+{% endblock content %}

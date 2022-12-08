@@ -1,0 +1,53 @@
+html {
+    overflow-y: scroll; 
+}
+
+
+body {
+    padding: 10px;
+}
+
+.jumbotron {
+    background-color: #a7a9ab;
+    padding: 120px 200px 300px 200px;
+}
+
+.content {
+    margin-top: 15px;
+}
+
+.loginpromt {
+    padding: 10px 150px 10px 150px;
+}
+
+.ingredient_pill {
+    padding: 10px 20px 10px 20px !important; 
+    margin-left: 15px;
+    border: 1px solid black;
+}
+
+.ingredient_categ_title {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.recipe_filter {
+    margin-left: 20px;
+}
+
+.recipe_filter_bot {
+    margin-top: 10px;
+}
+
+.sort_by_filter {
+    margin-left: 25px !important;
+    margin-bottom: 15px !important;
+}
+
+.recipe_card {
+    cursor: pointer;
+}
+
+.imported_recipe_diary {
+    margin-bottom: 10px;
+}

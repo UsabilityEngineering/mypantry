@@ -1,0 +1,52 @@
+{% load static %}
+{% if not saved %}
+    <div class="container">
+        <div class="row imported_recipe_diary text-center text-bg-light border bobrder-secondary fs-5 rounded-pill">
+            <span> You do not have any saved recipes. </span>
+        </div>
+    </div>
+{% else %}
+    {% for recipe in saved|dictsort:'name' %}
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <img src={% static 'core/img_placeholder.jpg' %} onclick=""/>
+            </div>
+            <div class="col-6 recipe_card" data-bs-toggle="modal" data-bs-target="#id_{{recipe.uuid}}_modal">
+                <h2>{{recipe.name}}</h2>
+                <p>Uploaded by: {{recipe.author}} </p>
+                <p>Total Time: {{recipe.total_time}} </p>
+                <p>Genres: {% for genre in recipe.genres.all %} <span class="badge text-decoration-none bg-secondary"> {{genre}} </span> {% endfor %} </p>
+                <p>Difficulty: {{recipe.difficulty}} </p>
+            </div>
+            <div class="col-2">
+                <button type="button" class="btn btn-secondary btn-light border border-secondary mb-3 planner_select" data-pk="{{recipe.id}}" onclick="addGrocList(this)">{% if recipe.planner %} Remove Recipe from Grocery List {% else %} Add Recipe Ingredients to Grocery List {% endif %}</button>
+                <button type="button" class="btn btn-secondary btn-light border border-secondary diary_select" data-pk="{{recipe.id}}" onclick="importRepFoodDiary(this)">{% if recipe.diary %} Remove Recipe from Food Diary {% else %} Import Recipe to Food Diary {% endif %}</button>
+            </div>
+            <div class="col-1">
+                <img class="favorite_select" data-pk="{{recipe.id}}" src={% if recipe.favorited %} {% static 'core/icons/heart-fill.svg' %} {% else %} {% static 'core/icons/heart.svg' %} {% endif %} onclick="saveRecipe(this)"/>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% endif %}
+
+<script>
+    $('.planner_select').click(function(){
+        var pk = $(this).attr("data-pk");
+        $.get("/update_planner/" + pk)
+      });
+    
+    $('.diary_select').click(function(){
+        var pk = $(this).attr("data-pk");
+        $.get("/update_diary/" + pk)
+      });
+    
+    $('.favorite_select').click(function(){
+        var pk = $(this).attr("data-pk");
+        $.get("/update_favorite/" + pk, function(r){ 
+            $('.saved_recipes').html('').load("{% url 'update_favorite_content' %}");
+        })
+      });
+</script>
+

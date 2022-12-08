@@ -1,0 +1,95 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{%block content %}
+<div class="container text-center">
+  <br>
+  <div class="row justify-content-md-center">
+    <div class="col-5">
+      <input class="form-control me-2" type="search" placeholder="search for ingredient" aria-label="Search" oninput="pantryItemSearch()" id="pantrySearch">
+    </div>
+  </div>
+  <br>
+  <div class="row justify-content-md-center">
+    <div class="col-7 selected_ingredients">
+      {% include 'core/selected_ingredients.html' %}
+    </div>
+  </div>
+</div>
+
+<div class="container text-left">
+  {% for category in categories %}
+  <div class = "fullrow">
+  <div class="row">
+    <div class="col-12 mb-3"><h2>{{category.name}}</h2></div>
+  </div>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-11">
+      {% for ingredient in category.ingredient_set.all %}
+      <span class="ingredient_pill badge rounded-pill text-bg-light mb-2 ingre" id="{{ingredient.id}}">
+        <img class="ingredient_select" data-pk = "{{ingredient.id}}" 
+            src={% if ingredient.selected %} {% static 'core/icons/check-square.svg' %} 
+                {% else %} {% static 'core/icons/square.svg' %} {% endif %} 
+            onclick="checkboxClicked(this)"/>
+        &nbsp&nbsp{{ingredient.name}}
+      </span>
+      {% endfor %}
+    </div>
+  </div>
+  </div>
+  {% endfor %}
+</div>
+
+<script>
+  $('.ingredient_select').click(function(){
+    var pk = $(this).attr("data-pk");
+    $.get("/update_ingredient/" + pk, function(r){
+      $('.selected_ingredients').html('').load("{% url 'update_selected' %}");
+    })
+  });
+</script>
+
+<script>
+  function pantryItemSearch() {
+    var ingredients = document.getElementsByClassName("ingre");
+    var search_text = document.getElementById('pantrySearch').value;
+    var rows = document.getElementsByClassName("fullrow");
+
+    for(let i = 0; i < ingredients.length; i++) {
+      ingredients[i].style.display = "none";
+    }
+    
+    xhttpObj = new XMLHttpRequest();
+    xhttpObj.onload = function() {
+      var ids = this.responseText.split(" ");
+      
+      for(let i = 0; i < ids.length; i++) {
+        try {
+          document.getElementById(String(ids[i])).style.display = "";
+        } catch{}
+      }
+
+      for(let i = 0; i < rows.length; i++) {
+        var spans = rows[i].querySelectorAll("span");
+        var hideRow = true;
+        for(let s = 0; s < spans.length; s++) {
+          if(spans[s].style.display == '') {
+            hideRow = false;
+            break;
+          }
+        }
+        if(hideRow) {
+          rows[i].style.display = "none";
+        }
+        else {
+          rows[i].style.display = '';
+        }
+      }
+    };
+    xhttpObj.open("GET", "?search=" + search_text);
+    xhttpObj.send();
+  }
+</script>
+
+{% endblock content %}

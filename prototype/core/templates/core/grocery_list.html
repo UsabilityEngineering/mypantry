@@ -1,0 +1,41 @@
+{% extends "core/base.html" %}
+{%block content %}
+<h1>Grocery List</h1>
+<div class="container text-center">
+    <div class="row justify-content-md-center">
+        <div class="col-10">
+            <br>
+            <br>
+            <div class="lead">Based on recipes you imported and ingredients in your pantry, you are missing the following ingredients:</div>
+            <br>
+            <div class="planner_ingredients">
+                {% include 'core/planner_content_ingredients.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<h3>Recipes Imported Into Grocery List:</h3>
+<br>
+<div class="container">
+    <div class="row planner_recipes">
+        {% include 'core/planner_content_recipes.html' %}
+    </div>
+</div>
+<br>
+<h3>Current Ingredients in Pantry:</h3>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-7">
+            {% for ingredient in ingredients %}
+            <span class="badge rounded-pill text-bg-secondary">{{ingredient.name}}</span>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

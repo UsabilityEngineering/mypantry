@@ -1,0 +1,32 @@
+{% if not recipes %}
+    <div class="container">
+        <div class="row imported_recipe_diary text-center text-bg-light border bobrder-secondary fs-5 rounded-pill">
+            <span> You do not have any imported recipes. </span>
+        </div>
+    </div>
+{% else %}
+    {% for recipe in recipes|dictsort:'name' %}
+    <div class="container">
+        <div class="row imported_recipe_diary text-start text-bg-light border border-secondary fs-5 rounded-pill">
+            <div class="col-8 mt-1 mb-1">
+                <span>{{recipe.name}}</span>
+            </div>
+            <div class="col-4">
+                <button type="button" class="btn btn-light border border-secondary mt-1 mb-1" data-bs-toggle="modal" data-bs-target="#createEntryFromImport" onclick="fillRecipeName(this)">Create Diary Entry</button>
+                <button type="button" data-pk="{{recipe.id}}" class="btn btn-light border border-secondary mt-1 mb-1 diary_select">Remove From Diary</button>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% endif %}
+
+<script>
+
+$('.diary_select').click(function(){
+    var pk = $(this).attr("data-pk");
+    $.get("/update_diary/" + pk, function(r) {
+        $('.diary_recipes').html('').load("{% url 'update_diary_content' %}");
+    })
+});
+
+</script>
