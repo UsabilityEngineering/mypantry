@@ -73,9 +73,23 @@ The team has performed more analysis and evaluated that our original vision was 
 
 **Executive Summary**
 
-* !!!In a bullet-list, provide a summary that highlights...!!!
-* !!!What you've done during this phase...!!!
-* !!!and what the significance of it is...!!!
-* !!!as an executive would understand.!!!
+Using insights gained in both phases I and II, the team for **MyPantry** designed and ran a usability test on a prototype of the web app in order to further improve the **user experience** of the product.
+
+* To improve **clarity**, tabs will be renamed to emphasize their purpose.
+    * "Pantry" tab will be renamed "Ingredients".
+* Documentation for the app will be separated out from the carousel on the "Home" page.
+    * This will improve **learnability**, allowing the user to understand how the product works prior to using it.
+
+Suggestions from the participants of the study have also influenced our design changes.
+* "Food Diary" will be completely redesigned to be a timeline.
+    * Users will add recipes or notes directly to this timeline.
+* The "Recipe Creation Form" will undergo a UI redesign to make certain buttons more **salient**.
+* "Browse Recipes" will undergo a UI redesign to improve clarity on what filters do and what their current status is.
+* The "Grocery List" page will receive a couple additional features:
+    * The ability to have missing ingredients presented in a list format.
+    * The ability to import all missing ingredients into a user's pantry.
+
+The study also revealed that the most liked features were the "Grocery List" and "Food Diary," indicating that the change in direction in the previous phase was necessary to differentiate our product.
+
 
 [Full phase III report](phaseIII/)
